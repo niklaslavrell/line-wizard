@@ -1,10 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: 'Break',
+    title: 'Give Me A Break',
     siteUrl: `https://www.gatsbyjs.org`,
     description: `Break the Lines on Your Intsgram Post`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`,
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
