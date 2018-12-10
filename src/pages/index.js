@@ -73,10 +73,34 @@ class IndexPage extends Component {
   copyWithLineBreak(alert, textWithNewLines) {
     var textAreaElement = document.getElementById('text')
     textAreaElement.value = textWithNewLines
-    textAreaElement.select()
+
+    let ua = navigator.userAgent.toLocaleLowerCase()
+    if (ua.includes('iphone') || ua.includes('ipad')) {
+      const contentEditable = textAreaElement.contentEditable
+      textAreaElement.contentEditable = true
+
+      const readOnly = textAreaElement.readOnly
+      textAreaElement.readOnly = true
+
+      let range = document.createRange()
+      range.selectNodeContents(textAreaElement)
+
+      let selection = window.getSelection()
+      selection.removeAllRanges()
+      selection.addRange(range)
+
+      textAreaElement.setSelectionRange(0, 1000000)
+
+      textAreaElement.contentEditable = contentEditable
+      textAreaElement.readOnly = readOnly
+    } else {
+      textAreaElement.select()
+    }
+
     document.execCommand('copy')
     textAreaElement.blur()
     this.setState({ buttonPresses: this.state.buttonPresses + 1 })
+
     // alert('Success')
     // alert.show('The lines have been broken 💫\nGo ahead and paste on insta 🎉')
   }
