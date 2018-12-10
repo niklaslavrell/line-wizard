@@ -42,6 +42,7 @@ class IndexPage extends Component {
 
     this.state = {
       text: '',
+      textWithNewLines: '',
       buttonPresses: 0,
     }
 
@@ -53,7 +54,11 @@ class IndexPage extends Component {
   onTextChange(event) {
     // this.setState({ text: event.target.value })
     this.setState({
-      text: event.target.value.replace(/(?:\r\n|\r|\n)/g, '\u2063\n'),
+      text: event.target.value,
+      textWithNewLines: event.target.value.replace(
+        /(?:\r\n|\r|\n)/g,
+        '\u2063\n'
+      ),
       buttonPresses: 0,
     })
   }
@@ -61,12 +66,13 @@ class IndexPage extends Component {
   /**
    * TODO: do something like this var copyText = event.srcElement
    */
-  onButtonClick(event, alert) {
-    this.copyWithLineBreak(alert)
+  onButtonClick(event, alert, textWithNewLines) {
+    this.copyWithLineBreak(alert, textWithNewLines)
   }
 
-  copyWithLineBreak(alert) {
+  copyWithLineBreak(alert, textWithNewLines) {
     var textAreaElement = document.getElementById('text')
+    textAreaElement.value = textWithNewLines
     textAreaElement.select()
     document.execCommand('copy')
     textAreaElement.blur()
@@ -77,6 +83,7 @@ class IndexPage extends Component {
 
   render() {
     const text = this.state.text
+    const textWithNewLines = this.state.textWithNewLines
     const buttonPresses = this.state.buttonPresses
 
     return (
@@ -148,7 +155,7 @@ class IndexPage extends Component {
             {alert => ( */}
         <button
           type="button"
-          onClick={event => this.onButtonClick(event, alert)}
+          onClick={event => this.onButtonClick(event, alert, textWithNewLines)}
           className="copyButton"
           style={{
             padding: '0.75rem',
