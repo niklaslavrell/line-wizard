@@ -130,6 +130,7 @@ class IndexPage extends Component {
             rows="8"
             cols="50"
             placeholder={textAreaPlaceholderText}
+            aria-label="Paste your instagram caption here"
             value={text}
             onChange={this.onTextChange}
             style={{
@@ -151,8 +152,10 @@ class IndexPage extends Component {
           className="copyButton"
           style={{
             padding: '0.75rem',
-            background: '#16CF97',
-            color: 'white',
+            //background: '#16CF97',
+            background: '#ffdd00',
+            //color: 'white',
+            color: 'black',
             fontWeight: '600',
             width: '100%',
             maxWidth: '500px',
