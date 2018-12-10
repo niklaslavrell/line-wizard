@@ -17,7 +17,7 @@ const HelpPage = () => (
       <strong>
         2. <Emoji symbol="📝" />
       </strong>{' '}
-      Copy the entire caption into the text box.
+      Cut the entire caption into the text box.
     </p>
     <p>
       <strong>
