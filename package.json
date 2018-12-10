@@ -1,6 +1,6 @@
 {
   "name": "break",
-  "description": "Instagrem Line Breaker",
+  "description": "Instagram Line Breaker",
   "version": "1.0.0",
   "author": "Niklas Lavrell <niklas.lavrell@gmail.com>",
   "dependencies": {
