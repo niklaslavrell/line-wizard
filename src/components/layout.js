@@ -90,6 +90,10 @@ const Layout = ({ children }) => (
               name: 'twitter:image',
               content: `${wizardicon512}`,
             },
+            {
+              name: 'google-site-verification',
+              content: 'KAONSdquRMnfjs7Fkd2LBbH9BSIayGycWajfH1QERvc',
+            },
           ]}
           link={[
             {
