@@ -16,16 +16,16 @@ import Image from '../components/image'
 //   type: 'success',
 // }
 
-const buttonText = 'Copy the Broken Lines'
+const buttonText = 'Copy clean wizard lines'
 const textAreaPlaceholderText =
-  'Join the club and break the lines 💫 #linewizard'
+  'Join the club of clean wizard line breaks..\n\n📝🧙‍💫\n\n#linewizard'
 const successMessages = [
   'The spell has broken the lines',
   'Broken the lines, the spell has',
   'Spell created new lines',
   'Wingardium Leviosa. Lines has levitated.',
 ]
-const successMessageAction = 'Go ahead and paste on insta'
+const successMessageAction = 'Go ahead and paste on Instagram'
 const failMessages = [
   'The spell could not break any lines',
   'There was no lines to break',

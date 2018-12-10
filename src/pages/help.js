@@ -35,7 +35,7 @@ const HelpPage = () => (
       <strong>
         5. <Emoji symbol="🎉" />
       </strong>{' '}
-      Publish your Instagram photo with clean Wizard line breaks!
+      Publish your Instagram photo with clean wizard line breaks!
     </p>
     <Link to="/">
       <strong>Try it out now</strong>
