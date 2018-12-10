@@ -44,6 +44,7 @@ class IndexPage extends Component {
     this.state = {
       text: '',
       textWithNewLines: '',
+      numberOfNewLines: 0,
       buttonPresses: 0,
     }
 
@@ -53,13 +54,13 @@ class IndexPage extends Component {
   }
 
   onTextChange(event) {
-    // this.setState({ text: event.target.value })
+    let text = event.target.value
+    let textWithNewLines = text.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
+    let numberOfNewLines = textWithNewLines.split('\u2063\n').length - 1
     this.setState({
-      text: event.target.value,
-      textWithNewLines: event.target.value.replace(
-        /(?:\r\n|\r|\n)/g,
-        '\u2063\n'
-      ),
+      text: text,
+      textWithNewLines: textWithNewLines,
+      numberOfNewLines: numberOfNewLines,
       buttonPresses: 0,
     })
   }
@@ -67,11 +68,19 @@ class IndexPage extends Component {
   /**
    * TODO: do something like this var copyText = event.srcElement
    */
-  onButtonClick(event, alert, textWithNewLines) {
-    this.copyWithLineBreak(alert, textWithNewLines)
+  onButtonClick(event, text, textWithNewLines, numberOfNewLines) {
+    if (window.ga) {
+      window.ga('send', 'event', {
+        eventCategory: 'Copy Text',
+        eventAction: 'click',
+        eventLabel: text.length > 0 ? 'success' : 'fail',
+        eventValue: numberOfNewLines,
+      })
+    }
+    this.copyWithLineBreak(textWithNewLines)
   }
 
-  copyWithLineBreak(alert, textWithNewLines) {
+  copyWithLineBreak(textWithNewLines) {
     var textAreaElement = document.getElementById('text')
     textAreaElement.value = textWithNewLines
 
@@ -109,6 +118,7 @@ class IndexPage extends Component {
   render() {
     const text = this.state.text
     const textWithNewLines = this.state.textWithNewLines
+    const numberOfNewLines = this.state.numberOfNewLines
     const buttonPresses = this.state.buttonPresses
 
     return (
@@ -177,7 +187,9 @@ class IndexPage extends Component {
         {/* <Alert>
             {alert => ( */}
         <Button
-          onClick={event => this.onButtonClick(event, alert, textWithNewLines)}
+          onClick={event =>
+            this.onButtonClick(event, text, textWithNewLines, numberOfNewLines)
+          }
         >
           {buttonText}
         </Button>
