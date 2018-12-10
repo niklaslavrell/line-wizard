@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Line Wizard 🧙‍♂️',
+    title: 'Line Wizard 🧙‍',
     siteUrl: `https://www.linewizard.club`,
     description: `Create New Lines on Your Instagram Posts`,
   },
