@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 // import { Provider as AlertProvider, Alert } from 'react-alert'
 // import AlertTemplate from 'react-alert-template-basic'
 // import { withAlert } from 'react-alert'
@@ -256,9 +256,11 @@ class IndexPage extends Component {
             >
               📝
             </span>
+            <Link to="/help">
+              <strong>Need help?</strong>
+            </Link>
           </div>
         ) : null}
-        {/* <Link to="/about">About</Link> */}
         {/* </AlertProvider> */}
       </Layout>
     )
