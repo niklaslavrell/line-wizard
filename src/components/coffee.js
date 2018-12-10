@@ -1,4 +1,5 @@
 import React from 'react'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import './coffee.css'
 
 const Coffee = () => (
@@ -18,18 +19,18 @@ const Coffee = () => (
         🙏
       </span>
     </span>
-    <a
-      className="bmc-button"
-      target="_blank"
+    <OutboundLink
       href="https://www.buymeacoffee.com/hannaniklas"
+      target="_blank"
       rel="noopener noreferrer"
+      className="bmc-button"
     >
       <img
         src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
         alt="Buy us a coffee"
       />
       <span style={{ marginLeft: '5px' }}>Buy us a coffee</span>
-    </a>
+    </OutboundLink>
   </React.Fragment>
 )
 

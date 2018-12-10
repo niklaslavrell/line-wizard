@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Coffee from '../components/coffee'
 
 const Footer = () => (
@@ -19,7 +19,7 @@ const Footer = () => (
       }}
     >
       Made for you by{' '}
-      <a
+      <OutboundLink
         href="https://www.instagram.com/testinproduction"
         target="_blank"
         rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const Footer = () => (
         }}
       >
         <strong>@testinproduction</strong>
-      </a>
+      </OutboundLink>
     </div>
     <div
       style={{
