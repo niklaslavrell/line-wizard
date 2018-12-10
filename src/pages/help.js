@@ -23,8 +23,7 @@ const HelpPage = () => (
       <strong>
         3. <Emoji symbol="🧙‍" />
       </strong>{' '}
-      Press the button to convert and copy the text. Make sure to wish to the
-      Line Wizard!
+      Press the big yellow button to copy the text with magic line breaks.
     </p>
     <p>
       <strong>
