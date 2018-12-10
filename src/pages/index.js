@@ -197,7 +197,8 @@ class IndexPage extends Component {
             }}
           >
             <strong>
-              {successMessages[buttonPresses % successMessages.length] + ' '}
+              {successMessages[(buttonPresses % successMessages.length) - 1] +
+                ' '}
               <span
                 role="img"
                 aria-label="Stars"
@@ -235,7 +236,7 @@ class IndexPage extends Component {
             }}
           >
             <strong>
-              {failMessages[buttonPresses % failMessages.length] + ' '}
+              {failMessages[(buttonPresses % failMessages.length) - 1] + ' '}
               <span
                 role="img"
                 aria-label="Woman shrugging"
