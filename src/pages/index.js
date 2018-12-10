@@ -6,6 +6,7 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Image from '../components/image'
+import Button from '../components/button'
 
 // optional cofiguration
 // const options = {
@@ -175,31 +176,12 @@ class IndexPage extends Component {
         </form>
         {/* <Alert>
             {alert => ( */}
-        <button
-          type="button"
+        <Button
           onClick={event => this.onButtonClick(event, alert, textWithNewLines)}
-          className="copyButton"
-          style={{
-            padding: '0.75rem',
-            //background: '#16CF97',
-            background: '#ffdd00',
-            //color: 'white',
-            color: 'black',
-            fontWeight: '600',
-            width: '100%',
-            maxWidth: '500px',
-            borderRadius: '2rem',
-            textTransform: 'uppercase',
-            border: '0rem',
-            boxShadow: '0px 2px 2px lightgray',
-            letterSpacing: '0.075rem',
-            fontSize: '1.1rem',
-            marginBottom: '1rem',
-            cursor: 'pointer',
-          }}
         >
           {buttonText}
-        </button>
+        </Button>
+
         {/* )}
           </Alert> */}
         {buttonPresses > 0 && text.length > 0 ? (

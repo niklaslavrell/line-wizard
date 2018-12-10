@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import Button from '../components/button'
 import Emoji from '../components/emoji'
 import Layout from '../components/layout'
 
@@ -38,7 +39,7 @@ const HelpPage = () => (
       Publish your Instagram photo with clean wizard line breaks!
     </p>
     <Link to="/">
-      <strong>Try it out now</strong>
+      <Button>Okay, let's give it a try</Button>
     </Link>
   </Layout>
 )
