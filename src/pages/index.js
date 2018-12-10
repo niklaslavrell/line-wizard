@@ -126,12 +126,10 @@ class IndexPage extends Component {
             PASTE YOUR
             <div
               style={{
-                maxWidth: '20px',
-                height: '20px',
-                width: '20px',
+                width: '1.3rem',
                 marginLeft: '0.4rem',
                 marginRight: '0.4rem',
-                marginTop: '0.1rem',
+                marginTop: '0.15rem',
               }}
             >
               <Image />
