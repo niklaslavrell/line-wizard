@@ -35,6 +35,10 @@ const Layout = ({ children }) => (
               content: 'instagram, post, posts, new, line, break',
             },
             {
+              name: 'image',
+              content: `${wizardicon512}`,
+            },
+            {
               property: 'og:title',
               content: `${data.site.siteMetadata.title}`,
             },
@@ -56,15 +60,43 @@ const Layout = ({ children }) => (
             },
             {
               property: 'og:image:width',
-              content: "512",
+              content: '512',
             },
             {
               property: 'og:image:height',
-              content: "512",
+              content: '512',
+            },
+            {
+              property: 'og:type',
+              content: 'website',
+            },
+            {
+              property: 'og:locale',
+              content: 'en_US',
+            },
+            {
+              name: 'twitter:card',
+              content: 'summary',
+            },
+            {
+              name: 'twitter:title',
+              content: `${data.site.siteMetadata.title}`,
+            },
+            {
+              name: 'twitter:description',
+              content: `${data.site.siteMetadata.description}`,
+            },
+            {
+              name: 'twitter:image',
+              content: `${wizardicon512}`,
             },
           ]}
           link={[
-            { rel: 'shortcut icon', type: 'image/png', href: `${wizardicon192}` },
+            {
+              rel: 'shortcut icon',
+              type: 'image/png',
+              href: `${wizardicon192}`,
+            },
           ]}
         >
           <html lang="en" />
