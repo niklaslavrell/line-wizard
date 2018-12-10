@@ -16,13 +16,33 @@ import Image from '../components/image'
 //   type: 'success',
 // }
 
+const buttonText = 'Copy the Broken Lines'
+const textAreaPlaceholderText =
+  'Join the club and break the lines 💫 #linewizard'
+const successMessages = [
+  'The spell has broken the lines',
+  'Broken the lines, the spell has',
+  'Spell created new lines',
+  'Wingardium Leviosa. Lines has levitated.',
+]
+const successMessageAction = 'Go ahead and paste on insta'
+const failMessages = [
+  'The spell could not break any lines',
+  'There was no lines to break',
+  'Not a lot of lines were broken',
+  'Very few lines are broken',
+  'The lines were not a lot broken',
+  'Lines broke but not this time',
+]
+const failMessageAction = 'Try pasting something'
+
 class IndexPage extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       text: '',
-      success: 0,
+      buttonPresses: 0,
     }
 
     this.onTextChange = this.onTextChange.bind(this)
@@ -34,6 +54,7 @@ class IndexPage extends Component {
     // this.setState({ text: event.target.value })
     this.setState({
       text: event.target.value.replace(/(?:\r\n|\r|\n)/g, '\u2063\n'),
+      buttonPresses: 0,
     })
   }
 
@@ -41,70 +62,22 @@ class IndexPage extends Component {
    * TODO: do something like this var copyText = event.srcElement
    */
   onButtonClick(event, alert) {
-    // /* Get the text field */
-    // var copyText = document.getElementById('text')
-
-    // /* Select the text field */
-    // copyText.select()
-
-    // /* Copy the text inside the text field */
-    // document.execCommand('copy')
-
-    // /* Alert the copied text */
-    // alert('Copied the text: ' + copyText.value)
     this.copyWithLineBreak(alert)
   }
 
   copyWithLineBreak(alert) {
-    // var str = document.getElementById('text').value
-    // var str = this.state.text
-    // str = str.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
-    // document.getElementById('text').value = str
-    // this.setState({ text: src })
-
-    // resolve the element
-    // var el = '.textarea'
-    // el = typeof el === 'string' ? document.querySelector(el) : el
     var textAreaElement = document.getElementById('text')
-
-    // handle iOS as a special case
-    // if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-    //   // save current contentEditable/readOnly status
-    //   var editable = textAreaElement.contentEditable
-    //   var readOnly = textAreaElement.readOnly
-
-    //   // convert to editable with readonly to stop iOS keyboard opening
-    //   textAreaElement.contentEditable = true
-    //   textAreaElement.readOnly = true
-
-    //   // create a selectable range
-    //   var range = document.createRange()
-    //   range.selectNodeContents(textAreaElement)
-
-    //   // select the range
-    //   var selection = window.getSelection()
-    //   selection.removeAllRanges()
-    //   selection.addRange(range)
-    //   textAreaElement.setSelectionRange(0, 999999)
-
-    //   // restore contentEditable/readOnly to original state
-    //   textAreaElement.contentEditable = editable
-    //   textAreaElement.readOnly = readOnly
-    // } else {
-    //   textAreaElement.select()
-    // }
-
     textAreaElement.select()
     document.execCommand('copy')
     textAreaElement.blur()
-    this.setState({ success: this.state.success + 1 })
+    this.setState({ buttonPresses: this.state.buttonPresses + 1 })
     // alert('Success')
     // alert.show('The lines have been broken 💫\nGo ahead and paste on insta 🎉')
   }
 
   render() {
     const text = this.state.text
-    const success = this.state.success
+    const buttonPresses = this.state.buttonPresses
 
     return (
       <Layout>
@@ -127,6 +100,7 @@ class IndexPage extends Component {
                 width: '20px',
                 marginLeft: '0.4rem',
                 marginRight: '0.4rem',
+                marginTop: '0.1rem',
               }}
             >
               <Image />
@@ -154,8 +128,8 @@ class IndexPage extends Component {
             name="text"
             className="textarea"
             rows="8"
-            cols="40"
-            placeholder="Paste and wish for breaks.. 💫"
+            cols="50"
+            placeholder={textAreaPlaceholderText}
             value={text}
             onChange={this.onTextChange}
             style={{
@@ -174,6 +148,7 @@ class IndexPage extends Component {
         <button
           type="button"
           onClick={event => this.onButtonClick(event, alert)}
+          className="copyButton"
           style={{
             padding: '0.75rem',
             background: '#16CF97',
@@ -188,13 +163,14 @@ class IndexPage extends Component {
             letterSpacing: '0.075rem',
             fontSize: '1.1rem',
             marginBottom: '1rem',
+            cursor: 'pointer',
           }}
         >
-          Copy with Line Breaks
+          {buttonText}
         </button>
         {/* )}
           </Alert> */}
-        {success > 0 ? (
+        {buttonPresses > 0 && text.length > 0 ? (
           <div
             style={{
               padding: '0.3rem 0.5rem',
@@ -207,16 +183,71 @@ class IndexPage extends Component {
               letterSpacing: '0.075rem',
               fontSize: '0.9rem',
               textAlign: 'center',
+              marginBottom: '1rem',
             }}
           >
             <strong>
-              The lines are broken and copied 💫 ({this.state.success} times)
+              {successMessages[buttonPresses % successMessages.length] + ' '}
+              <span
+                role="img"
+                aria-label="Stars"
+                aria-hidden="false"
+                style={{ marginLeft: '0.1rem' }}
+              >
+                💫
+              </span>
             </strong>
             <br />
-            Go ahead and paste on insta 🎉
+            {successMessageAction + ' '}
+            <span
+              role="img"
+              aria-label="A party popper"
+              aria-hidden="false"
+              style={{ marginLeft: '0.1rem' }}
+            >
+              🎉
+            </span>
+          </div>
+        ) : buttonPresses > 0 ? (
+          <div
+            style={{
+              padding: '0.3rem 0.5rem',
+              background: '#e6dd9c47',
+              color: '#eacf0d',
+              width: '100%',
+              maxWidth: '500px',
+              border: '0.075rem solid #eacf0d',
+              borderRadius: '0.2rem',
+              letterSpacing: '0.075rem',
+              fontSize: '0.9rem',
+              textAlign: 'center',
+              marginBottom: '1rem',
+            }}
+          >
+            <strong>
+              {failMessages[buttonPresses % failMessages.length] + ' '}
+              <span
+                role="img"
+                aria-label="Woman shrugging"
+                aria-hidden="false"
+                style={{ marginLeft: '0.1rem' }}
+              >
+                🤷‍
+              </span>
+            </strong>
+            <br />
+            {failMessageAction + ' '}
+            <span
+              role="img"
+              aria-label="Pen and paper"
+              aria-hidden="false"
+              style={{ marginLeft: '0.1rem' }}
+            >
+              📝
+            </span>
           </div>
         ) : null}
-        {/* <Link to="/page-2/">About</Link> */}
+        {/* <Link to="/about">About</Link> */}
         {/* </AlertProvider> */}
       </Layout>
     )

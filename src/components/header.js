@@ -18,7 +18,7 @@ const Header = ({ siteTitle }) => (
         letterSpacing: '0.25rem',
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <h1 style={{ margin: 0, fontSize: '2em' }}>
         <Link
           to="/"
           style={{

@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Give Me A Break',
-    siteUrl: `https://www.gatsbyjs.org`,
-    description: `Break the Lines on Your Intsgram Post`,
+    title: 'Line Wizard 🧙‍♂️',
+    siteUrl: `https://www.linewizard.club`,
+    description: `Create New Lines on Your Instagram Posts`,
   },
   plugins: [
     {
@@ -24,13 +24,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'break',
-        short_name: 'break',
+        name: 'Line Wizard',
+        short_name: 'Line Wizard',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        background_color: '#8821AC',
+        theme_color: '#8821AC',
+        display: 'standalone',
+        icon: 'src/images/wizardicon512.png', // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
