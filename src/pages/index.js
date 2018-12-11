@@ -136,7 +136,12 @@ const sendAnalyticsEvent = (event, text, numberOfNewLines) => {
 }
 
 const PasteText = () => (
-  <React.Fragment>
+  <div
+    style={{
+      display: 'inherit',
+      margin: 'auto',
+    }}
+  >
     PASTE YOUR
     <div
       style={{
@@ -157,7 +162,7 @@ const PasteText = () => (
     >
       👇
     </span>
-  </React.Fragment>
+  </div>
 )
 
 class IndexPage extends Component {
@@ -331,7 +336,7 @@ class IndexPage extends Component {
             letterSpacing: '0.05rem',
           }}
         >
-          <div style={{ display: 'flex', margin: 'auto' }}>
+          <div style={{ display: 'flex', width: '100%' }}>
             {clipboardRead && clipboardRead !== 'denied' ? (
               <Button
                 onClick={this.onPasteButtonClick}
