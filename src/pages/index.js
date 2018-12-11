@@ -19,6 +19,8 @@ import wizard from '../images/wizard-flash-200.gif'
 // }
 
 const buttonText = 'Copy clean wizard lines'
+const buttonTextSuccess = 'Copied!'
+const buttonTextSpelling = 'Wingardium Leviosa...'
 const textAreaPlaceholderText =
   'Join the club of clean wizard line breaks..\n\n📝🧙‍💫\n\n#linewizard'
 const successMessages = [
@@ -209,7 +211,11 @@ class IndexPage extends Component {
             this.onButtonClick(event, text, textWithNewLines, numberOfNewLines)
           }
         >
-          {buttonText}
+          {spelling
+            ? buttonTextSpelling
+            : buttonPresses > 0 && text.length > 0
+            ? buttonTextSuccess
+            : buttonText}
         </Button>
 
         {/* )}
