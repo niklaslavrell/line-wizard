@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import favIconWizard from '../images/wizard-purple-192.png'
 // import metaWizard from '../images/wizard-purple-512.png'
-import metaWizard from '../images/wizard-fade-512.gif'
+import metaWizard from '../images/wizard-fade-purple-300.gif'
 
 import Header from './header'
 import Footer from './footer'
@@ -57,15 +57,15 @@ const Layout = ({ children }) => (
             },
             {
               property: 'og:image:type',
-              content: 'image/png',
+              content: 'image/gif', // 'image/png'
             },
             {
               property: 'og:image:width',
-              content: '512',
+              content: '300', // 512
             },
             {
               property: 'og:image:height',
-              content: '512',
+              content: '300', // 512
             },
             {
               property: 'og:type',
