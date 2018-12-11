@@ -85,8 +85,8 @@ const reverseString = str => {
   return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
 }
 const regexpStringReversed = ')n\\|r\\|n\\r\\:?('
-const regexpFlagsReversed = 'g'
-
+// const regexpFlagsReversed = 'g' // charCodeAt(0)// 103
+const regexFlagReversedCharCodeZero = 103
 // const charReversed = '\n\u2063'
 // const originalNewLineString = '\u2063\n'
 // console.log('originalNewLineString 0', originalNewLineString.charCodeAt(0)) // 8291
@@ -94,18 +94,14 @@ const regexpFlagsReversed = 'g'
 // console.log('string from char code', String.fromCharCode(10)) // \n
 const newLineCharCodeZero = 8291
 const newLineCharCodeOne = 10
-const newLineStringReversed = String.fromCharCode(
-  newLineCharCodeOne,
-  newLineCharCodeZero
-)
 
 const getTextWithNewLines = string =>
   string.replace(
     new RegExp(
       reverseString(regexpStringReversed),
-      reverseString(regexpFlagsReversed)
+      reverseString(String.fromCharCode(regexFlagReversedCharCodeZero))
     ),
-    reverseString(newLineStringReversed)
+    reverseString(String.fromCharCode(newLineCharCodeOne, newLineCharCodeZero))
   )
 // TO BE CONTINUED
 
