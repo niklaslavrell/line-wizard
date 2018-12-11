@@ -65,30 +65,48 @@ var timeout = null
 //     string.replace(regexFromString, originalNewLineString)
 
 // FROM REVERSED STRINGS
+// const reverseString = str => {
+//   return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
+// }
+// const regexpStringReversed = ')n\\|r\\|n\\r\\:?('
+// const regexpFlagsReversed = 'g'
+// const charReversed = '\n\u2063'
+// const getTextWithNewLines = string =>
+//   string.replace(
+//     new RegExp(
+//       reverseString(regexpStringReversed),
+//       reverseString(regexpFlagsReversed)
+//     ),
+//     reverseString(charReversed)
+//   )
+
+// FROM CHAR CODES REVERSED
 const reverseString = str => {
   return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
 }
 const regexpStringReversed = ')n\\|r\\|n\\r\\:?('
 const regexpFlagsReversed = 'g'
-const charReversed = '\n\u2063'
+
+// const charReversed = '\n\u2063'
+// const originalNewLineString = '\u2063\n'
+// console.log('originalNewLineString 0', originalNewLineString.charCodeAt(0)) // 8291
+// console.log('originalNewLineString 1', originalNewLineString.charCodeAt(1)) // 10
+// console.log('string from char code', String.fromCharCode(10)) // \n
+const newLineCharCodeZero = 8291
+const newLineCharCodeOne = 10
+const newLineStringReversed = String.fromCharCode(
+  newLineCharCodeOne,
+  newLineCharCodeZero
+)
+
 const getTextWithNewLines = string =>
   string.replace(
     new RegExp(
       reverseString(regexpStringReversed),
       reverseString(regexpFlagsReversed)
     ),
-    reverseString(charReversed)
+    reverseString(newLineStringReversed)
   )
-
-// FROM CHAR CODES
-// const originalNewLineString = '\u2063\n'
-// console.log('originalNewLineString 0', originalNewLineString.charCodeAt(0)) // 8291
-// console.log('originalNewLineString 1', originalNewLineString.charCodeAt(1)) // 10
-// String.fromCharCode(10)
-// const newLineCharCodeZero = 8291
-// const newLineCharCodeOne = 10
-// const newLineStringRevered = String.fromCharCode(newLineCharCodeOne, newLineCharCodeZero)
-// const newLineString = reverseString(newLineStringRevered)
 // TO BE CONTINUED
 
 /**
