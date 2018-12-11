@@ -42,6 +42,59 @@ const failMessageAction = 'Try pasting something'
 
 var timeout = null
 
+const getTextWithNewLines = string =>
+  string.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
+const getNumberOfNewLines = string => string.split('\u2063\n').length - 1
+const wasThereAnyText = string => string.length > 0
+
+const analyticsEvent = {
+  PASTE: 'PASTE',
+  COPY: 'COPY',
+}
+const sendAnalyticsEvent = (event, text, numberOfNewLines) => {
+  if (event !== analyticsEvent.PASTE || event !== analyticsEvent.COPY) {
+    console.error('Did not specify analytics event')
+  }
+  if (window.ga) {
+    window.ga('send', 'event', {
+      eventCategory: 'Copy Text',
+      eventAction:
+        event === analyticsEvent.PASTE
+          ? 'paste'
+          : event === analyticsEvent.COPY
+          ? 'copy'
+          : 'click',
+      eventLabel: wasThereAnyText(text) ? 'success' : 'fail',
+      eventValue: numberOfNewLines,
+    })
+  }
+}
+
+const PasteText = () => (
+  <React.Fragment>
+    PASTE YOUR
+    <div
+      style={{
+        width: '1.3rem',
+        marginLeft: '0.4rem',
+        marginRight: '0.4rem',
+        marginTop: '0.15rem',
+      }}
+    >
+      <Image />
+    </div>
+    CAPTION HERE
+    <span
+      role="img"
+      aria-label="A hand pointing down"
+      aria-hidden="false"
+      style={{ marginLeft: '0.1rem' }}
+    >
+      👇
+    </span>
+  </React.Fragment>
+)
+
 class IndexPage extends Component {
   constructor(props) {
     super(props)
@@ -52,18 +105,50 @@ class IndexPage extends Component {
       numberOfNewLines: 0,
       buttonPresses: 0,
       spelling: false,
+      clipboardRead: null,
+      clipboardWrite: null,
     }
 
+    this.checkClipboardPermissions = this.checkClipboardPermissions.bind(this)
     this.onTextChange = this.onTextChange.bind(this)
-    this.onButtonClick = this.onButtonClick.bind(this)
+    this.doPasteText = this.doPasteText.bind(this)
+    this.onPasteButtonClick = this.onPasteButtonClick.bind(this)
+    this.onCopyButtonClick = this.onCopyButtonClick.bind(this)
     this.spell = this.spell.bind(this)
     this.copyWithLineBreak = this.copyWithLineBreak.bind(this)
   }
 
+  componentDidMount() {
+    this.checkClipboardPermissions()
+  }
+
+  checkClipboardPermissions() {
+    var that = this
+    if (navigator.permissions) {
+      navigator.permissions
+        .query({ name: 'clipboard-read' })
+        .then(permission => {
+          that.setState({
+            clipboardRead: permission.state, // 'granted', 'denied' or 'prompt'
+          })
+        })
+      navigator.permissions
+        .query({ name: 'clipboard-write' })
+        .then(permission => {
+          that.setState({
+            clipboardWrite: permission.state, // 'granted', 'denied' or 'prompt'
+          })
+        })
+    } else {
+      // console.log('Browser do not support the Permission API')
+    }
+  }
+
   onTextChange(event) {
+    // the text have manually been updated by the user
     let text = event.target.value
-    let textWithNewLines = text.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
-    let numberOfNewLines = textWithNewLines.split('\u2063\n').length - 1
+    let textWithNewLines = getTextWithNewLines(text)
+    let numberOfNewLines = getNumberOfNewLines(textWithNewLines)
     this.setState({
       text: text,
       textWithNewLines: textWithNewLines,
@@ -72,24 +157,53 @@ class IndexPage extends Component {
     })
   }
 
-  /**
-   * TODO: do something like this var copyText = event.srcElement
-   */
-  onButtonClick(event, text, textWithNewLines, numberOfNewLines) {
+  doPasteText(text) {
+    let textWithNewLines = getTextWithNewLines(text)
+    let numberOfNewLines = getNumberOfNewLines(textWithNewLines)
+
+    this.setState({
+      text: text,
+      textWithNewLines: textWithNewLines,
+      numberOfNewLines: numberOfNewLines,
+      spelling: true,
+      buttonPresses: this.state.buttonPresses + 1,
+    })
+
+    this.spell()
+    this.copyWithLineBreak(textWithNewLines)
+
+    sendAnalyticsEvent(analyticsEvent.PASTE, text, numberOfNewLines)
+  }
+
+  onPasteButtonClick(event) {
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .readText()
+        .then(clipboardText => {
+          this.doPasteText(clipboardText)
+        })
+        .catch(err => {
+          console.error('Failed to read clipboard contents: ', err)
+          this.checkClipboardPermissions()
+        })
+    } else {
+      console.error('Failed to access clipboard')
+    }
+  }
+
+  onCopyButtonClick(event) {
+    const text = this.state.text
+    const textWithNewLines = this.state.textWithNewLines
+    const numberOfNewLines = this.state.numberOfNewLines
+
     this.setState({
       spelling: true,
       buttonPresses: this.state.buttonPresses + 1,
     })
     this.spell()
     this.copyWithLineBreak(textWithNewLines)
-    if (window.ga) {
-      window.ga('send', 'event', {
-        eventCategory: 'Copy Text',
-        eventAction: 'click',
-        eventLabel: text.length > 0 ? 'success' : 'fail',
-        eventValue: numberOfNewLines,
-      })
-    }
+
+    sendAnalyticsEvent(analyticsEvent.COPY, text, numberOfNewLines)
   }
 
   spell() {
@@ -99,6 +213,10 @@ class IndexPage extends Component {
     }, 1000)
   }
 
+  /**
+   * TODO: do something like this var copyText = event.srcElement
+   * TODO: check what happens if the user blocks clipboard-write
+   */
   copyWithLineBreak(textWithNewLines) {
     var textAreaElement = document.getElementById('text')
     textAreaElement.value = textWithNewLines
@@ -134,11 +252,7 @@ class IndexPage extends Component {
   }
 
   render() {
-    const text = this.state.text
-    const textWithNewLines = this.state.textWithNewLines
-    const numberOfNewLines = this.state.numberOfNewLines
-    const buttonPresses = this.state.buttonPresses
-    const spelling = this.state.spelling
+    const { text, buttonPresses, spelling, clipboardRead } = this.state
 
     return (
       <Layout>
@@ -153,26 +267,18 @@ class IndexPage extends Component {
           }}
         >
           <div style={{ display: 'flex', margin: 'auto' }}>
-            PASTE YOUR
-            <div
-              style={{
-                width: '1.3rem',
-                marginLeft: '0.4rem',
-                marginRight: '0.4rem',
-                marginTop: '0.15rem',
-              }}
-            >
-              <Image />
-            </div>
-            CAPTION HERE
-            <span
-              role="img"
-              aria-label="A hand pointing down"
-              aria-hidden="false"
-              style={{ marginLeft: '0.1rem' }}
-            >
-              👇
-            </span>
+            {clipboardRead && clipboardRead !== 'denied' ? (
+              <Button
+                onClick={this.onPasteButtonClick}
+                style={{
+                  marginBottom: '0.2rem',
+                }}
+              >
+                <PasteText />
+              </Button>
+            ) : (
+              <PasteText />
+            )}
           </div>
         </div>
         <form
@@ -205,15 +311,10 @@ class IndexPage extends Component {
         </form>
         {/* <Alert>
             {alert => ( */}
-        <Button
-          disabled={spelling}
-          onClick={event =>
-            this.onButtonClick(event, text, textWithNewLines, numberOfNewLines)
-          }
-        >
+        <Button disabled={spelling} onClick={this.onCopyButtonClick}>
           {spelling
             ? buttonTextSpelling
-            : buttonPresses > 0 && text.length > 0
+            : buttonPresses > 0 && wasThereAnyText(text)
             ? buttonTextSuccess
             : buttonText}
         </Button>
@@ -225,7 +326,7 @@ class IndexPage extends Component {
             minHeight: '3.75rem',
           }}
         >
-          {buttonPresses > 0 && !spelling && text.length > 0 ? (
+          {buttonPresses > 0 && !spelling && wasThereAnyText(text) ? (
             <div
               style={{
                 padding: '0.3rem 0.5rem',

@@ -9,22 +9,26 @@ const Button = props => (
     onClick={props.onClick && props.onClick}
     className="button"
     disabled={!!props.disabled}
-    style={{
-      padding: '0.75rem 2rem',
-      background: '#ffdd00',
-      color: 'black',
-      fontWeight: '600',
-      width: '100%',
-      maxWidth: '500px',
-      borderRadius: '2rem',
-      textTransform: 'uppercase',
-      border: '0rem',
-      boxShadow: '0px 2px 2px lightgray',
-      letterSpacing: '0.075rem',
-      fontSize: '1.1rem',
-      marginBottom: '1rem',
-      cursor: 'pointer',
-    }}
+    style={Object.assign(
+      {
+        display: 'inherit',
+        padding: '0.75rem 2rem',
+        background: '#ffdd00',
+        color: 'black',
+        fontWeight: '600',
+        width: '100%',
+        maxWidth: '500px',
+        borderRadius: '2rem',
+        textTransform: 'uppercase',
+        border: '0rem',
+        boxShadow: '0px 2px 2px lightgray',
+        letterSpacing: '0.075rem',
+        fontSize: '1.1rem',
+        marginBottom: '1rem',
+        cursor: 'pointer',
+      },
+      props.style && props.style
+    )}
   >
     {props.children}
   </button>
