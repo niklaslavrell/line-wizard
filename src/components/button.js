@@ -12,7 +12,7 @@ const Button = props => (
     style={Object.assign(
       {
         display: 'inherit',
-        padding: '0.75rem 2rem',
+        padding: '0.75rem 1rem',
         background: '#ffdd00',
         color: 'black',
         fontWeight: '600',
