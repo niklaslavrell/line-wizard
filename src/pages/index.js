@@ -42,8 +42,59 @@ const failMessageAction = 'Try pasting something'
 
 var timeout = null
 
+/**
+ * STRING REPLACE FORMULA
+ */
+
+// ORIGINAL VALUES
+// const getTextWithNewLines = string =>
+//   string.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
+
+// ORIGINAL VALUES AS VARIABLES
+// const originalRegExp = /(?:\r\n|\r|\n)/g
+// const originalNewLineString = '\u2063\n'
+// const getTextWithNewLines = string =>
+// string.replace(originalRegExp, originalNewLineString)
+
+// ORIGINAL VALUES AS A REGEXP CONSTRUCTOR
+// const regexpString = '(?:\\r\\n|\\r|\\n)'
+// const regexpFlags = 'g'
+// const regexFromString = new RegExp(regexpString, regexpFlags)
+// const originalNewLineString = '\u2063\n'
+//   const getTextWithNewLines = string =>
+//     string.replace(regexFromString, originalNewLineString)
+
+// FROM REVERSED STRINGS
+const reverseString = str => {
+  return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
+}
+const regexpStringReversed = ')n\\|r\\|n\\r\\:?('
+const regexpFlagsReversed = 'g'
+const charReversed = '\n\u2063'
 const getTextWithNewLines = string =>
-  string.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
+  string.replace(
+    new RegExp(
+      reverseString(regexpStringReversed),
+      reverseString(regexpFlagsReversed)
+    ),
+    reverseString(charReversed)
+  )
+
+// FROM CHAR CODES
+// const originalNewLineString = '\u2063\n'
+// console.log('originalNewLineString 0', originalNewLineString.charCodeAt(0)) // 8291
+// console.log('originalNewLineString 1', originalNewLineString.charCodeAt(1)) // 10
+// String.fromCharCode(10)
+// const newLineCharCodeZero = 8291
+// const newLineCharCodeOne = 10
+// const newLineStringRevered = String.fromCharCode(newLineCharCodeOne, newLineCharCodeZero)
+// const newLineString = reverseString(newLineStringRevered)
+// TO BE CONTINUED
+
+/**
+ * END OF STRING REPLACE FORMULA
+ */
+
 const getNumberOfNewLines = string => string.split('\u2063\n').length - 1
 const wasThereAnyText = string => string.length > 0
 
