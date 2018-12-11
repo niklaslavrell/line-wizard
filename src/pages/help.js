@@ -12,13 +12,13 @@ const HelpPage = () => (
       <strong>
         1. <Emoji symbol="📸" />
       </strong>{' '}
-      Write your Instagram caption as usual in the Instagram app.
+      Write your caption as you want it to look like in the Instagram app.
     </p>
     <p>
       <strong>
-        2. <Emoji symbol="📝" />
+        2. <Emoji symbol="✂️" />
       </strong>{' '}
-      Cut the entire caption into the text box.
+      Cut the entire caption and paste into the wizard text field.
     </p>
     <p>
       <strong>
