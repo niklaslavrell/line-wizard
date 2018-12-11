@@ -26,17 +26,17 @@ const textAreaPlaceholderText =
 const successMessages = [
   'The spell has broken the lines',
   'Broken the lines, the spell has',
-  'Spell created new lines',
-  'Wingardium Leviosa. Lines has levitated.',
+  'The spell created new lines',
+  'Wingardium Leviosa. Lines have levitated.',
 ]
 const successMessageAction = 'Go ahead and paste on Instagram'
 const failMessages = [
   'The spell could not break any lines',
-  'There was no lines to break',
+  'There were no lines to break',
   'Not a lot of lines were broken',
   'Very few lines are broken',
   'The lines were not a lot broken',
-  'Lines broke but not this time',
+  'Lines did not break this time',
 ]
 const failMessageAction = 'Try pasting something'
 
@@ -400,11 +400,10 @@ class IndexPage extends Component {
             <div
               style={{
                 padding: '0.3rem 0.5rem',
-                background: '#E7F6E6',
-                color: '#11BB77',
+                background: '#11BB77',
+                color: 'white',
                 width: '100%',
                 maxWidth: '500px',
-                border: '0.075rem solid #11BB77',
                 borderRadius: '0.4rem',
                 letterSpacing: '0.075rem',
                 fontSize: '0.9rem',
@@ -438,11 +437,10 @@ class IndexPage extends Component {
             <div
               style={{
                 padding: '0.3rem 0.5rem',
-                background: '#FFF9EA',
-                color: '#6A6A6A',
+                background: '#FC3030',
+                color: 'white',
                 width: '100%',
                 maxWidth: '500px',
-                border: '0.075rem solid #FFCB12',
                 borderRadius: '0.4rem',
                 letterSpacing: '0.075rem',
                 fontSize: '0.9rem',
@@ -470,7 +468,12 @@ class IndexPage extends Component {
               >
                 📝
               </span>
-              <Link to="/help">
+              <Link 
+                style={{
+                  color: 'white',
+                  textDecoration: 'none',
+                }}
+                to="/help">
                 <strong>Need help?</strong>
               </Link>
             </div>
