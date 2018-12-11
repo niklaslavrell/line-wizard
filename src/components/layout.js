@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import favIconWizard from '../images/wizard-purple-192.png'
-// import metaWizard from '../images/wizard-purple-512.png'
+import metaWizardStatic from '../images/wizard-purple-512.png'
 import metaWizard from '../images/wizard-fade-purple-300.gif'
 
 import Header from './header'
@@ -51,21 +51,39 @@ const Layout = ({ children }) => (
               property: 'og:url',
               content: `${data.site.siteMetadata.siteUrl}`,
             },
+            /* animated gif image */
             {
               property: 'og:image',
               content: `${metaWizard}`,
             },
             {
               property: 'og:image:type',
-              content: 'image/gif', // 'image/png'
+              content: 'image/gif',
             },
             {
               property: 'og:image:width',
-              content: '300', // 512
+              content: '300',
             },
             {
               property: 'og:image:height',
-              content: '300', // 512
+              content: '300',
+            },
+            /* static png image */
+            {
+              property: 'og:image',
+              content: `${metaWizardStatic}`,
+            },
+            {
+              property: 'og:image:type',
+              content: 'image/png',
+            },
+            {
+              property: 'og:image:width',
+              content: '512',
+            },
+            {
+              property: 'og:image:height',
+              content: '512',
             },
             {
               property: 'og:type',
