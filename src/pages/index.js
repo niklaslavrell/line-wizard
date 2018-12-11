@@ -4,9 +4,10 @@ import { Link } from 'gatsby'
 // import AlertTemplate from 'react-alert-template-basic'
 // import { withAlert } from 'react-alert'
 
-import Layout from '../components/layout'
-import Image from '../components/image'
 import Button from '../components/button'
+import Image from '../components/image'
+import Layout from '../components/layout'
+import wizard from '../images/giphy-wand-transparent.gif'
 
 // optional cofiguration
 // const options = {
@@ -37,6 +38,8 @@ const failMessages = [
 ]
 const failMessageAction = 'Try pasting something'
 
+var timeout = null
+
 class IndexPage extends Component {
   constructor(props) {
     super(props)
@@ -46,10 +49,12 @@ class IndexPage extends Component {
       textWithNewLines: '',
       numberOfNewLines: 0,
       buttonPresses: 0,
+      spelling: false,
     }
 
     this.onTextChange = this.onTextChange.bind(this)
     this.onButtonClick = this.onButtonClick.bind(this)
+    this.spell = this.spell.bind(this)
     this.copyWithLineBreak = this.copyWithLineBreak.bind(this)
   }
 
@@ -69,6 +74,12 @@ class IndexPage extends Component {
    * TODO: do something like this var copyText = event.srcElement
    */
   onButtonClick(event, text, textWithNewLines, numberOfNewLines) {
+    this.setState({
+      spelling: true,
+      buttonPresses: this.state.buttonPresses + 1,
+    })
+    this.spell()
+    this.copyWithLineBreak(textWithNewLines)
     if (window.ga) {
       window.ga('send', 'event', {
         eventCategory: 'Copy Text',
@@ -77,7 +88,13 @@ class IndexPage extends Component {
         eventValue: numberOfNewLines,
       })
     }
-    this.copyWithLineBreak(textWithNewLines)
+  }
+
+  spell() {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => {
+      this.setState({ spelling: false })
+    }, 1000)
   }
 
   copyWithLineBreak(textWithNewLines) {
@@ -109,7 +126,6 @@ class IndexPage extends Component {
 
     document.execCommand('copy')
     textAreaElement.blur()
-    this.setState({ buttonPresses: this.state.buttonPresses + 1 })
 
     // alert('Success')
     // alert.show('The lines have been broken 💫\nGo ahead and paste on insta 🎉')
@@ -120,6 +136,7 @@ class IndexPage extends Component {
     const textWithNewLines = this.state.textWithNewLines
     const numberOfNewLines = this.state.numberOfNewLines
     const buttonPresses = this.state.buttonPresses
+    const spelling = this.state.spelling
 
     return (
       <Layout>
@@ -187,6 +204,7 @@ class IndexPage extends Component {
         {/* <Alert>
             {alert => ( */}
         <Button
+          disabled={spelling}
           onClick={event =>
             this.onButtonClick(event, text, textWithNewLines, numberOfNewLines)
           }
@@ -196,87 +214,102 @@ class IndexPage extends Component {
 
         {/* )}
           </Alert> */}
-        {buttonPresses > 0 && text.length > 0 ? (
-          <div
-            style={{
-              padding: '0.3rem 0.5rem',
-              background: '#E7F6E6',
-              color: '#11BB77',
-              width: '100%',
-              maxWidth: '500px',
-              border: '0.075rem solid #11BB77',
-              borderRadius: '0.4rem',
-              letterSpacing: '0.075rem',
-              fontSize: '0.9rem',
-              textAlign: 'center',
-              marginBottom: '1rem',
-            }}
-          >
-            <strong>
-              {successMessages[(buttonPresses - 1) % successMessages.length] +
-                ' '}
+        <div
+          style={{
+            minHeight: '3.75rem',
+          }}
+        >
+          {buttonPresses > 0 && !spelling && text.length > 0 ? (
+            <div
+              style={{
+                padding: '0.3rem 0.5rem',
+                background: '#E7F6E6',
+                color: '#11BB77',
+                width: '100%',
+                maxWidth: '500px',
+                border: '0.075rem solid #11BB77',
+                borderRadius: '0.4rem',
+                letterSpacing: '0.075rem',
+                fontSize: '0.9rem',
+                textAlign: 'center',
+              }}
+            >
+              <strong>
+                {successMessages[(buttonPresses - 1) % successMessages.length] +
+                  ' '}
+                <span
+                  role="img"
+                  aria-label="Stars"
+                  aria-hidden="false"
+                  style={{ marginLeft: '0.1rem' }}
+                >
+                  💫
+                </span>
+              </strong>
+              <br />
+              {successMessageAction + ' '}
               <span
                 role="img"
-                aria-label="Stars"
+                aria-label="A party popper"
                 aria-hidden="false"
                 style={{ marginLeft: '0.1rem' }}
               >
-                💫
+                🎉
               </span>
-            </strong>
-            <br />
-            {successMessageAction + ' '}
-            <span
-              role="img"
-              aria-label="A party popper"
-              aria-hidden="false"
-              style={{ marginLeft: '0.1rem' }}
+            </div>
+          ) : buttonPresses > 0 && !spelling ? (
+            <div
+              style={{
+                padding: '0.3rem 0.5rem',
+                background: '#FFF9EA',
+                color: '#6A6A6A',
+                width: '100%',
+                maxWidth: '500px',
+                border: '0.075rem solid #FFCB12',
+                borderRadius: '0.4rem',
+                letterSpacing: '0.075rem',
+                fontSize: '0.9rem',
+                textAlign: 'center',
+              }}
             >
-              🎉
-            </span>
-          </div>
-        ) : buttonPresses > 0 ? (
-          <div
-            style={{
-              padding: '0.3rem 0.5rem',
-              background: '#FFF9EA',
-              color: '#6A6A6A',
-              width: '100%',
-              maxWidth: '500px',
-              border: '0.075rem solid #FFCB12',
-              borderRadius: '0.4rem',
-              letterSpacing: '0.075rem',
-              fontSize: '0.9rem',
-              textAlign: 'center',
-              marginBottom: '1rem',
-            }}
-          >
-            <strong>
-              {failMessages[(buttonPresses - 1) % failMessages.length] + ' '}
+              <strong>
+                {failMessages[(buttonPresses - 1) % failMessages.length] + ' '}
+                <span
+                  role="img"
+                  aria-label="Woman shrugging"
+                  aria-hidden="false"
+                  style={{ marginLeft: '0.1rem' }}
+                >
+                  🤷‍
+                </span>
+              </strong>
+              <br />
+              {failMessageAction + ' '}
               <span
                 role="img"
-                aria-label="Woman shrugging"
+                aria-label="Pen and paper"
                 aria-hidden="false"
                 style={{ marginLeft: '0.1rem' }}
               >
-                🤷‍
+                📝
               </span>
-            </strong>
-            <br />
-            {failMessageAction + ' '}
-            <span
-              role="img"
-              aria-label="Pen and paper"
-              aria-hidden="false"
-              style={{ marginLeft: '0.1rem' }}
-            >
-              📝
-            </span>
-            <Link to="/help">
-              <strong>Need help?</strong>
-            </Link>
-          </div>
-        ) : null}
+              <Link to="/help">
+                <strong>Need help?</strong>
+              </Link>
+            </div>
+          ) : spelling ? (
+            <img
+              src={wizard}
+              alt="Wizard"
+              className="wizard"
+              style={{
+                display: 'flex',
+                margin: 'auto',
+                width: '3.75rem',
+              }}
+            />
+          ) : null}
+        </div>
         {/* </AlertProvider> */}
       </Layout>
     )

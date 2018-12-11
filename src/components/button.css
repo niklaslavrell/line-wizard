@@ -1,9 +1,9 @@
 .button {
-  -o-transition: 0.3s all linear;
-  -webkit-transition: 0.3s all linear;
-  -moz-transition: 0.3s all linear;
-  -ms-transition: 0.3s all linear;
-  transition: 0.3s all linear;
+  -o-transition: 0.2s all linear;
+  -webkit-transition: 0.2s all linear;
+  -moz-transition: 0.2s all linear;
+  -ms-transition: 0.2s all linear;
+  transition: 0.2s all linear;
 }
 
 .button:hover,
@@ -15,3 +15,21 @@
   opacity: 0.85;
   color: #000000;
 }
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+/* make the wizard spin */
+/* .wizard {
+  animation: wizard-spin infinite 1s linear;
+}
+
+@keyframes wizard-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

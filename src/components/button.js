@@ -8,6 +8,7 @@ const Button = props => (
     type="button"
     onClick={props.onClick && props.onClick}
     className="button"
+    disabled={!!props.disabled}
     style={{
       padding: '0.75rem 2rem',
       background: '#ffdd00',
