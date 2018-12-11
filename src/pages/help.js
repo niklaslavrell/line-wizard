@@ -24,7 +24,7 @@ const HelpPage = () => (
       <strong>
         3. <Emoji symbol="🧙‍" />
       </strong>{' '}
-      Press the big yellow button to copy the text with magic line breaks.
+      Press the copy button to copy the text with magic line breaks.
     </p>
     <p>
       <strong>
