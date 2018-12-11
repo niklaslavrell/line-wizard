@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Line Wizard 🧙‍',
+    title: 'Line Wizard',
     siteUrl: `https://www.linewizard.club`,
     description: `Clean Line Breaks on Your Instagram Posts with the Line Wizard`,
   },
@@ -30,7 +30,7 @@ module.exports = {
         background_color: '#8821AC',
         theme_color: '#8821AC',
         display: 'standalone',
-        icon: 'src/images/wizardicon512.png', // This path is relative to the root of the site.
+        icon: 'src/images/wizard-purple-512.png', // This path is relative to the root of the site.
       },
     },
     {

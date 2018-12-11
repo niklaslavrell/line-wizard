@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import wizardicon192 from '../images/wizardicon192.png'
-import wizardicon512 from '../images/wizardicon512.png'
+import favIconWizard from '../images/wizard-purple-192.png'
+// import metaWizard from '../images/wizard-purple-512.png'
+import metaWizard from '../images/wizard-fade-512.gif'
 
 import Header from './header'
 import Footer from './footer'
@@ -36,7 +37,7 @@ const Layout = ({ children }) => (
             },
             {
               name: 'image',
-              content: `${wizardicon512}`,
+              content: `${metaWizard}`,
             },
             {
               property: 'og:title',
@@ -52,7 +53,7 @@ const Layout = ({ children }) => (
             },
             {
               property: 'og:image',
-              content: `${wizardicon512}`,
+              content: `${metaWizard}`,
             },
             {
               property: 'og:image:type',
@@ -88,7 +89,7 @@ const Layout = ({ children }) => (
             },
             {
               name: 'twitter:image',
-              content: `${wizardicon512}`,
+              content: `${metaWizard}`,
             },
             {
               name: 'google-site-verification',
@@ -99,7 +100,7 @@ const Layout = ({ children }) => (
             {
               rel: 'shortcut icon',
               type: 'image/png',
-              href: `${wizardicon192}`,
+              href: `${favIconWizard}`,
             },
           ]}
         >

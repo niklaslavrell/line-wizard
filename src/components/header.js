@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import wizard from '../images/wizard-fade-100.gif'
 
 const Header = ({ siteTitle }) => (
   <div
@@ -31,6 +32,16 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
+        <img
+          src={wizard}
+          alt="A wizard"
+          style={{
+            display: 'inline',
+            marginBottom: '0',
+            verticalAlign: 'bottom',
+            width: '2.28rem',
+          }}
+        />
       </h1>
     </div>
   </div>

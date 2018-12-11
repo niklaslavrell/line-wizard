@@ -7,7 +7,7 @@ import { Link } from 'gatsby'
 import Button from '../components/button'
 import Image from '../components/image'
 import Layout from '../components/layout'
-import wizard from '../images/giphy-wand-transparent.gif'
+import wizard from '../images/wizard-flash-200.gif'
 
 // optional cofiguration
 // const options = {
