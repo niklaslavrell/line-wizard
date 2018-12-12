@@ -118,7 +118,7 @@ const analyticsEvent = {
   COPY: 'COPY',
 }
 const sendAnalyticsEvent = (event, text, numberOfNewLines) => {
-  if (event !== analyticsEvent.PASTE || event !== analyticsEvent.COPY) {
+  if (event !== analyticsEvent.PASTE && event !== analyticsEvent.COPY) {
     console.error('Did not specify analytics event')
   }
   if (window.ga) {
@@ -358,6 +358,7 @@ class IndexPage extends Component {
             width: '100%',
             maxWidth: '23.49rem',
             marginBottom: '1rem',
+            position: 'relative',
           }}
         >
           <textarea
@@ -381,33 +382,23 @@ class IndexPage extends Component {
               borderColor: '#000000b3',
             }}
           />
-          <div
+          <img
+            src={wizard}
+            alt="Wizard"
+            className="wizard"
             style={{
+              position: 'absolute',
+              right: '0rem',
+              bottom: '0rem',
+              display: spelling ? 'inline' : 'none',
               width: '5rem',
-              height: '5rem',
+              marginBottom: '0rem',
             }}
-          >
-            <img
-              src={wizard}
-              alt="Wizard"
-              className="wizard"
-              style={{
-                position: 'relative',
-                top: '-5rem',
-                left: '15rem',
-                width: '5rem',
-                display: spelling ? 'inline' : 'none',
-              }}
-            />
-          </div>
+          />
         </form>
         {/* <Alert>
             {alert => ( */}
-        <Button
-          disabled={spelling}
-          onClick={this.onCopyButtonClick}
-          style={{ marginTop: '-5.5rem' }}
-        >
+        <Button disabled={spelling} onClick={this.onCopyButtonClick}>
           {spelling
             ? buttonTextSpelling
             : buttonPresses > 0 && wasThereAnyText(text)
