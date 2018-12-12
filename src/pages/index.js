@@ -305,31 +305,34 @@ class IndexPage extends Component {
     var textAreaElement = document.getElementById('text')
     textAreaElement.value = textWithNewLines
 
-    let ua = navigator.userAgent.toLocaleLowerCase()
-    if (ua.includes('iphone') || ua.includes('ipad')) {
-      const contentEditable = textAreaElement.contentEditable
-      textAreaElement.contentEditable = true
+    // quick fix: setting a 500 ms delay on the copy event..
+    setTimeout(() => {
+      let ua = navigator.userAgent.toLocaleLowerCase()
+      if (ua.includes('iphone') || ua.includes('ipad')) {
+        const contentEditable = textAreaElement.contentEditable
+        textAreaElement.contentEditable = true
 
-      const readOnly = textAreaElement.readOnly
-      textAreaElement.readOnly = true
+        const readOnly = textAreaElement.readOnly
+        textAreaElement.readOnly = true
 
-      let range = document.createRange()
-      range.selectNodeContents(textAreaElement)
+        let range = document.createRange()
+        range.selectNodeContents(textAreaElement)
 
-      let selection = window.getSelection()
-      selection.removeAllRanges()
-      selection.addRange(range)
+        let selection = window.getSelection()
+        selection.removeAllRanges()
+        selection.addRange(range)
 
-      textAreaElement.setSelectionRange(0, 1000000)
+        textAreaElement.setSelectionRange(0, 1000000)
 
-      textAreaElement.contentEditable = contentEditable
-      textAreaElement.readOnly = readOnly
-    } else {
-      textAreaElement.select()
-    }
+        textAreaElement.contentEditable = contentEditable
+        textAreaElement.readOnly = readOnly
+      } else {
+        textAreaElement.select()
+      }
 
-    document.execCommand('copy')
-    textAreaElement.blur()
+      document.execCommand('copy')
+      textAreaElement.blur()
+    }, 500)
 
     // alert('Success')
     // alert.show('The lines have been broken 💫\nGo ahead and paste on insta 🎉')
