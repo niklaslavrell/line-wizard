@@ -59,8 +59,8 @@ var timeout = null
  */
 
 // ORIGINAL VALUES
-// const getTextWithNewLines = string =>
-//   string.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
+const getTextWithNewLines = string =>
+  string.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
 
 // ORIGINAL VALUES AS VARIABLES
 // const originalRegExp = /(?:\r\n|\r|\n)/g
@@ -93,28 +93,30 @@ var timeout = null
 //   )
 
 // FROM CHAR CODES REVERSED
-const reverseString = str => {
-  return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
-}
-const regexpStringReversed = ')n\\|r\\|n\\r\\:?('
-// const regexpFlagsReversed = 'g' // charCodeAt(0)// 103
-const regexFlagReversedCharCodeZero = 103
-// const charReversed = '\n\u2063'
-// const originalNewLineString = '\u2063\n'
-// console.log('originalNewLineString 0', originalNewLineString.charCodeAt(0)) // 8291
-// console.log('originalNewLineString 1', originalNewLineString.charCodeAt(1)) // 10
-// console.log('string from char code', String.fromCharCode(10)) // \n
-const newLineCharCodeZero = 8291
-const newLineCharCodeOne = 10
+// const reverseString = str => {
+//   return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
+// }
+// const regexpStringReversed = ')n\\|r\\|n\\r\\:?('
+// // const regexpFlagsReversed = 'g' // charCodeAt(0)// 103
+// const regexFlagReversedCharCodeZero = 103
 
-const getTextWithNewLines = string =>
-  string.replace(
-    new RegExp(
-      reverseString(regexpStringReversed),
-      reverseString(String.fromCharCode(regexFlagReversedCharCodeZero))
-    ),
-    reverseString(String.fromCharCode(newLineCharCodeOne, newLineCharCodeZero))
-  )
+// // const charReversed = '\n\u2063'
+// // const originalNewLineString = '\u2063\n'
+// // console.log('originalNewLineString 0', originalNewLineString.charCodeAt(0)) // 8291
+// // console.log('originalNewLineString 1', originalNewLineString.charCodeAt(1)) // 10
+// // console.log('string from char code', String.fromCharCode(10)) // \n
+
+// const newLineCharCodeZero = 8291
+// const newLineCharCodeOne = 10
+
+// const getTextWithNewLines = string =>
+//   string.replace(
+//     new RegExp(
+//       reverseString(regexpStringReversed),
+//       reverseString(String.fromCharCode(regexFlagReversedCharCodeZero))
+//     ),
+//     reverseString(String.fromCharCode(newLineCharCodeOne, newLineCharCodeZero))
+//   )
 // TO BE CONTINUED
 
 /**
