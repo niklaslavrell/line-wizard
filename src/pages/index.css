@@ -2,33 +2,19 @@
   background-color: #ffdc000f;
 }
 
-.textarea {
-  position: relative;
-  z-index: -100;
-}
-
-.wizard {
-  z-index: -10;
-}
-
-.button {
-  z-index: 10;
-}
-
-/* make the wizard spin */
-.wizard {
+.wizard-animation {
   animation: wizard-appear 1 0.2s linear, wizard-stay 1 1.1s linear 0.2s,
     wizard-disappear 1 0.2s linear 1.3s;
 }
 
-@keyframes wizard-spin {
+/* @keyframes wizard-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 @keyframes wizard-appear {
   from {

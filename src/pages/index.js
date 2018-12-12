@@ -366,6 +366,7 @@ class IndexPage extends Component {
             )}
           </div>
         </div>
+        {/* form should be position relative to make the wizard relative to it */}
         <form
           style={{
             width: '100%',
@@ -395,10 +396,11 @@ class IndexPage extends Component {
               borderColor: '#000000b3',
             }}
           />
+          {/* positioning the wizard absolute to the form */}
           <img
             src={wizard}
             alt="Wizard"
-            className={spelling ? 'wizard' : ''}
+            className={spelling ? 'wizard-animation' : ''}
             style={{
               position: 'absolute',
               right: '0rem',
@@ -410,6 +412,7 @@ class IndexPage extends Component {
             }}
           />
         </form>
+        {/* a div to hide the wizard behind in the animation */}
         <div
           style={{
             width: '100%',
@@ -420,6 +423,7 @@ class IndexPage extends Component {
         />
         {/* <Alert>
             {alert => ( */}
+        {/* push the button back up with a minus margin */}
         <Button
           style={{ marginTop: '-4rem' }}
           disabled={spelling}
