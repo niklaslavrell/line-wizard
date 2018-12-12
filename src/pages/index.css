@@ -1,0 +1,17 @@
+.textarea:disabled {
+  background-color: #ffdc000f;
+}
+
+/* make the wizard spin */
+/* .wizard {
+  animation: wizard-spin infinite 1s linear;
+}
+
+@keyframes wizard-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

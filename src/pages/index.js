@@ -8,6 +8,7 @@ import Button from '../components/button'
 import Image from '../components/image'
 import Layout from '../components/layout'
 import wizard from '../images/wizard-flash-200.gif'
+import './index.css'
 
 // optional cofiguration
 // const options = {
@@ -340,6 +341,7 @@ class IndexPage extends Component {
             {clipboardRead && clipboardRead !== 'denied' ? (
               <Button
                 onClick={this.onPasteButtonClick}
+                disabled={spelling}
                 style={{
                   marginBottom: '0.2rem',
                 }}
@@ -354,7 +356,7 @@ class IndexPage extends Component {
         <form
           style={{
             width: '100%',
-            maxWidth: '500px',
+            maxWidth: '23.49rem',
             marginBottom: '1rem',
           }}
         >
@@ -367,6 +369,7 @@ class IndexPage extends Component {
             placeholder={textAreaPlaceholderText}
             aria-label="Paste your instagram caption here"
             value={text}
+            disabled={spelling}
             onChange={this.onTextChange}
             style={{
               width: '100%',
@@ -378,10 +381,33 @@ class IndexPage extends Component {
               borderColor: '#000000b3',
             }}
           />
+          <div
+            style={{
+              width: '5rem',
+              height: '5rem',
+            }}
+          >
+            <img
+              src={wizard}
+              alt="Wizard"
+              className="wizard"
+              style={{
+                position: 'relative',
+                top: '-5rem',
+                left: '15rem',
+                width: '5rem',
+                display: spelling ? 'inline' : 'none',
+              }}
+            />
+          </div>
         </form>
         {/* <Alert>
             {alert => ( */}
-        <Button disabled={spelling} onClick={this.onCopyButtonClick}>
+        <Button
+          disabled={spelling}
+          onClick={this.onCopyButtonClick}
+          style={{ marginTop: '-5.5rem' }}
+        >
           {spelling
             ? buttonTextSpelling
             : buttonPresses > 0 && wasThereAnyText(text)
@@ -478,17 +504,6 @@ class IndexPage extends Component {
                 <strong>Need help?</strong>
               </Link>
             </div>
-          ) : spelling ? (
-            <img
-              src={wizard}
-              alt="Wizard"
-              className="wizard"
-              style={{
-                display: 'flex',
-                margin: 'auto',
-                width: '3.75rem',
-              }}
-            />
           ) : null}
         </div>
         {/* </AlertProvider> */}
