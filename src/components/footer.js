@@ -18,7 +18,18 @@ const Footer = () => (
         textAlign: 'center',
       }}
     >
-      Made for you by{' '}
+      <OutboundLink
+        href="https://www.instagram.com/linewizardclub"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          color: 'white',
+          textDecoration: 'none',
+        }}
+      >
+        <strong>@linewizardclub</strong>
+      </OutboundLink>{' '}
+      is made for you by{' '}
       <OutboundLink
         href="https://www.instagram.com/testinproduction"
         target="_blank"
