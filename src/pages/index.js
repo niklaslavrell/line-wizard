@@ -294,7 +294,7 @@ class IndexPage extends Component {
     clearTimeout(timeout)
     timeout = setTimeout(() => {
       this.setState({ spelling: false })
-    }, 1000)
+    }, 1500)
   }
 
   /**
@@ -369,6 +369,7 @@ class IndexPage extends Component {
             )}
           </div>
         </div>
+        {/* form should be position relative to make the wizard relative to it */}
         <form
           style={{
             width: '100%',
@@ -398,23 +399,39 @@ class IndexPage extends Component {
               borderColor: '#000000b3',
             }}
           />
+          {/* positioning the wizard absolute to the form */}
           <img
             src={wizard}
             alt="Wizard"
-            className="wizard"
+            className={spelling ? 'wizard-animation' : ''}
             style={{
               position: 'absolute',
               right: '0rem',
-              bottom: '0rem',
+              bottom: '-5rem',
               display: spelling ? 'inline' : 'none',
               width: '5rem',
+              zIndex: '-10',
               marginBottom: '0rem',
             }}
           />
         </form>
+        {/* a div to hide the wizard behind in the animation */}
+        <div
+          style={{
+            width: '100%',
+            height: '5rem',
+            background: 'white',
+            marginTop: '-1.4rem',
+          }}
+        />
         {/* <Alert>
             {alert => ( */}
-        <Button disabled={spelling} onClick={this.onCopyButtonClick}>
+        {/* push the button back up with a minus margin */}
+        <Button
+          style={{ marginTop: '-4rem' }}
+          disabled={spelling}
+          onClick={this.onCopyButtonClick}
+        >
           {spelling
             ? getMessage(buttonTextSpells, buttonPresses)
             : buttonPresses > 0 && wasThereAnyText(text)
