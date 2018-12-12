@@ -362,7 +362,7 @@ class IndexPage extends Component {
             id="text"
             name="text"
             className="textarea"
-            rows="8"
+            rows="6"
             cols="50"
             placeholder={textAreaPlaceholderText}
             aria-label="Paste your instagram caption here"
@@ -468,12 +468,13 @@ class IndexPage extends Component {
               >
                 📝
               </span>
-              <Link 
+              <Link
                 style={{
                   color: 'white',
                   textDecoration: 'none',
                 }}
-                to="/help">
+                to="/help"
+              >
                 <strong>Need help?</strong>
               </Link>
             </div>
