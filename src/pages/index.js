@@ -422,7 +422,7 @@ class IndexPage extends Component {
                 width: '100%',
                 maxWidth: '500px',
                 borderRadius: '0.4rem',
-                letterSpacing: '0.075rem',
+                letterSpacing: '0.03rem',
                 fontSize: '0.9rem',
                 textAlign: 'center',
               }}
@@ -459,7 +459,7 @@ class IndexPage extends Component {
                 width: '100%',
                 maxWidth: '500px',
                 borderRadius: '0.4rem',
-                letterSpacing: '0.075rem',
+                letterSpacing: '0.03rem',
                 fontSize: '0.9rem',
                 textAlign: 'center',
               }}
