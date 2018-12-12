@@ -54,10 +54,22 @@ const failMessageAction = 'Try pasting something'
 
 var timeout = null
 
-/** How to listen to manual cut/copy/paste events */
-//window.addEventListener('copy', () => console.log('copy listener'))
-//window.addEventListener('cut', () => console.log('cut listener'))
-//window.addEventListener('paste', () => console.log('paste listener'))
+/**
+ * https://whatwebcando.today/clipboard.html
+ */
+
+/**
+ * Permissions API: https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API
+ * Clipboard API: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
+ * Guide: https://developers.google.com/web/updates/2018/03/clipboardapi
+ */
+
+/** How to listen to manual cut/copy/paste events
+ * https://developer.mozilla.org/en-US/docs/Web/API/ClipboardEvent/clipboardData
+ * window.addEventListener('copy', () => console.log('copy listener'))
+ * window.addEventListener('cut', () => console.log('cut listener'))
+ * window.addEventListener('paste', () => console.log('paste listener'))
+ */
 
 /**
  * STRING REPLACE FORMULA
