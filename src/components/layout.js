@@ -51,23 +51,6 @@ const Layout = ({ children }) => (
               property: 'og:url',
               content: `${data.site.siteMetadata.siteUrl}`,
             },
-            /* animated gif image */
-            {
-              property: 'og:image',
-              content: `${metaWizard}`,
-            },
-            {
-              property: 'og:image:type',
-              content: 'image/gif',
-            },
-            {
-              property: 'og:image:width',
-              content: '300',
-            },
-            {
-              property: 'og:image:height',
-              content: '300',
-            },
             /* static png image */
             {
               property: 'og:image',
@@ -84,6 +67,23 @@ const Layout = ({ children }) => (
             {
               property: 'og:image:height',
               content: '512',
+            },
+            /* animated gif image */
+            {
+              property: 'og:image',
+              content: `${metaWizard}`,
+            },
+            {
+              property: 'og:image:type',
+              content: 'image/gif',
+            },
+            {
+              property: 'og:image:width',
+              content: '300',
+            },
+            {
+              property: 'og:image:height',
+              content: '300',
             },
             {
               property: 'og:type',
