@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import favIconWizard from '../images/wizard-purple-192.png'
-import metaWizardStatic from '../images/wizard-purple-512.png'
-import metaWizard from '../images/wizard-fade-purple-300.gif'
+import metaWizard512png from '../images/wizard-purple-512.png'
+import metaWizard512gif from '../images/wizard-fade-purple-512.gif'
 
 import Header from './header'
 import Footer from './footer'
@@ -37,7 +37,7 @@ const Layout = ({ children }) => (
             },
             {
               name: 'image',
-              content: `${metaWizard}`,
+              content: `${metaWizard512png}`,
             },
             {
               property: 'og:title',
@@ -54,7 +54,7 @@ const Layout = ({ children }) => (
             /* static png image */
             {
               property: 'og:image',
-              content: `${metaWizardStatic}`,
+              content: `${metaWizard512png}`,
             },
             {
               property: 'og:image:type',
@@ -71,7 +71,7 @@ const Layout = ({ children }) => (
             /* animated gif image */
             {
               property: 'og:image',
-              content: `${metaWizard}`,
+              content: `${metaWizard512gif}`,
             },
             {
               property: 'og:image:type',
@@ -79,11 +79,11 @@ const Layout = ({ children }) => (
             },
             {
               property: 'og:image:width',
-              content: '300',
+              content: '512',
             },
             {
               property: 'og:image:height',
-              content: '300',
+              content: '512',
             },
             {
               property: 'og:type',
@@ -107,7 +107,7 @@ const Layout = ({ children }) => (
             },
             {
               name: 'twitter:image',
-              content: `${metaWizard}`,
+              content: `${metaWizard512png}`,
             },
             {
               name: 'google-site-verification',
