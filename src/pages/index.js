@@ -193,6 +193,7 @@ class IndexPage extends Component {
       spelling: false,
       clipboardRead: null,
       clipboardWrite: null,
+      error: null,
     }
 
     this.checkClipboardPermissions = this.checkClipboardPermissions.bind(this)
@@ -267,10 +268,12 @@ class IndexPage extends Component {
         .readText()
         .then(clipboardText => {
           this.doPasteText(clipboardText)
+          this.setState({ error: null })
         })
         .catch(err => {
-          console.error('Failed to read clipboard contents: ', err)
+          console.error('Failed to read from clipboard:', err)
           this.checkClipboardPermissions()
+          this.setState({ error: 'Failed to read from clipboard' })
         })
     } else {
       console.error('Failed to access clipboard')
@@ -304,41 +307,55 @@ class IndexPage extends Component {
    * TODO: check what happens if the user blocks clipboard-write
    */
   copyWithLineBreak(textWithNewLines) {
-    var textAreaElement = document.getElementById('text')
-    textAreaElement.value = textWithNewLines
-
-    let ua = navigator.userAgent.toLocaleLowerCase()
-    if (ua.includes('iphone') || ua.includes('ipad')) {
-      const contentEditable = textAreaElement.contentEditable
-      textAreaElement.contentEditable = true
-
-      const readOnly = textAreaElement.readOnly
-      textAreaElement.readOnly = true
-
-      let range = document.createRange()
-      range.selectNodeContents(textAreaElement)
-
-      let selection = window.getSelection()
-      selection.removeAllRanges()
-      selection.addRange(range)
-
-      textAreaElement.setSelectionRange(0, 1000000)
-
-      textAreaElement.contentEditable = contentEditable
-      textAreaElement.readOnly = readOnly
+    // detect if browser supports the Clipboard API
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText(textWithNewLines)
+        .then(() => {
+          this.setState({ error: null })
+        })
+        .catch(err => {
+          console.error('Failed to write to clipboard:', err)
+          this.checkClipboardPermissions()
+          this.setState({ error: 'Failed to write to clipboard' })
+        })
     } else {
-      textAreaElement.select()
+      // using trying legacy version
+      var textAreaElement = document.getElementById('text')
+      textAreaElement.value = textWithNewLines
+
+      let ua = navigator.userAgent.toLocaleLowerCase()
+      if (ua.includes('iphone') || ua.includes('ipad')) {
+        const contentEditable = textAreaElement.contentEditable
+        textAreaElement.contentEditable = true
+
+        const readOnly = textAreaElement.readOnly
+        textAreaElement.readOnly = true
+
+        let range = document.createRange()
+        range.selectNodeContents(textAreaElement)
+
+        let selection = window.getSelection()
+        selection.removeAllRanges()
+        selection.addRange(range)
+
+        textAreaElement.setSelectionRange(0, 1000000)
+
+        textAreaElement.contentEditable = contentEditable
+        textAreaElement.readOnly = readOnly
+      } else {
+        textAreaElement.select()
+      }
+
+      document.execCommand('copy')
+      textAreaElement.blur()
     }
-
-    document.execCommand('copy')
-    textAreaElement.blur()
-
     // alert('Success')
     // alert.show('The lines have been broken 💫\nGo ahead and paste on insta 🎉')
   }
 
   render() {
-    const { text, buttonPresses, spelling, clipboardRead } = this.state
+    const { text, buttonPresses, spelling, clipboardRead, error } = this.state
 
     return (
       <Layout>
@@ -402,11 +419,12 @@ class IndexPage extends Component {
           <img
             src={wizard}
             alt="Wizard"
-            className={spelling ? 'wizard-animation' : ''}
+            className={true && spelling ? 'wizard-animation' : ''}
             style={{
               position: 'absolute',
               right: '0rem',
-              bottom: '-5rem',
+              //bottom: '-5rem', // if starting from below then change animation
+              bottom: '0rem',
               display: spelling ? 'inline' : 'none',
               width: '5rem',
               zIndex: '-10',
@@ -445,7 +463,33 @@ class IndexPage extends Component {
             minHeight: '3.75rem',
           }}
         >
-          {buttonPresses > 0 && !spelling && wasThereAnyText(text) ? (
+          {error ? (
+            <div
+              style={{
+                padding: '0.3rem 0.5rem',
+                background: '#FC3030',
+                color: 'white',
+                width: '100%',
+                maxWidth: '500px',
+                borderRadius: '0.4rem',
+                letterSpacing: '0.03rem',
+                fontSize: '0.9rem',
+                textAlign: 'center',
+              }}
+            >
+              <strong>
+                {error}
+                <span
+                  role="img"
+                  aria-label="A crying face"
+                  aria-hidden="false"
+                  style={{ marginLeft: '0.1rem' }}
+                >
+                  😢
+                </span>
+              </strong>
+            </div>
+          ) : buttonPresses > 0 && !spelling && wasThereAnyText(text) ? (
             <div
               style={{
                 padding: '0.3rem 0.5rem',
