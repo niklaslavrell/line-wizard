@@ -12,7 +12,40 @@
 >
 > [https://www.linewizard.club](https://www.linewizard.club)
 
-## Quick start
+## Solution
+
+_Currently in use_
+
+1. **Invisible Separator**
+
+   Put a _Invisible Separator_ in front of any line break, like `string.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')`
+
+   Used by:
+
+   - http://apps4lifehost.com/Instagram/CaptionMaker.html
+
+   Reference:
+
+   - Decimal Code: 8291
+   - Hex Code: 2063
+   - http://www.codetable.net/decimal/8291
+
+2. **Braille Pattern Blank**
+
+   Put a bunch of _Braille Pattern Blank_ in the empty lines to fill them up with invinsible characters
+
+   Used by:
+
+   - http://instablank.com/ (17 characters)
+   - Used by Krista (9 characters)
+
+   Reference:
+
+   - Decimal Code: 10240
+   - Hex Code: 2800
+   - http://www.codetable.net/decimal/10240
+
+## Development
 
 1. Install the node dependencies
 
