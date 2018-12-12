@@ -2,9 +2,23 @@
   background-color: #ffdc000f;
 }
 
+.textarea {
+  position: relative;
+  z-index: -100;
+}
+
+.wizard {
+  z-index: -10;
+}
+
+.button {
+  z-index: 10;
+}
+
 /* make the wizard spin */
-/* .wizard {
-  animation: wizard-spin infinite 1s linear;
+.wizard {
+  animation: wizard-appear 1 0.2s linear, wizard-stay 1 1.1s linear 0.2s,
+    wizard-disappear 1 0.2s linear 1.3s;
 }
 
 @keyframes wizard-spin {
@@ -14,4 +28,31 @@
   to {
     transform: rotate(360deg);
   }
-} */
+}
+
+@keyframes wizard-appear {
+  from {
+    transform: translate(0rem, 0rem);
+  }
+  to {
+    transform: translate(0rem, -5rem);
+  }
+}
+
+@keyframes wizard-stay {
+  from {
+    transform: translate(0rem, -5rem);
+  }
+  to {
+    transform: translate(0rem, -5rem);
+  }
+}
+
+@keyframes wizard-disappear {
+  from {
+    transform: translate(0rem, -5rem);
+  }
+  to {
+    transform: translate(0rem, 0rem);
+  }
+}

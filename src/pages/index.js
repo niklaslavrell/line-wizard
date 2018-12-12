@@ -294,7 +294,7 @@ class IndexPage extends Component {
     clearTimeout(timeout)
     timeout = setTimeout(() => {
       this.setState({ spelling: false })
-    }, 1000)
+    }, 1500)
   }
 
   /**
@@ -398,20 +398,33 @@ class IndexPage extends Component {
           <img
             src={wizard}
             alt="Wizard"
-            className="wizard"
+            className={spelling ? 'wizard' : ''}
             style={{
               position: 'absolute',
               right: '0rem',
-              bottom: '0rem',
+              bottom: '-5rem',
               display: spelling ? 'inline' : 'none',
               width: '5rem',
+              zIndex: '-10',
               marginBottom: '0rem',
             }}
           />
         </form>
+        <div
+          style={{
+            width: '100%',
+            height: '5rem',
+            background: 'white',
+            marginTop: '-1.4rem',
+          }}
+        />
         {/* <Alert>
             {alert => ( */}
-        <Button disabled={spelling} onClick={this.onCopyButtonClick}>
+        <Button
+          style={{ marginTop: '-4rem' }}
+          disabled={spelling}
+          onClick={this.onCopyButtonClick}
+        >
           {spelling
             ? getMessage(buttonTextSpells, buttonPresses)
             : buttonPresses > 0 && wasThereAnyText(text)
