@@ -54,6 +54,11 @@ const failMessageAction = 'Try pasting something'
 
 var timeout = null
 
+/** How to listen to manual cut/copy/paste events */
+//window.addEventListener('copy', () => console.log('copy listener'))
+//window.addEventListener('cut', () => console.log('cut listener'))
+//window.addEventListener('paste', () => console.log('paste listener'))
+
 /**
  * STRING REPLACE FORMULA
  */
