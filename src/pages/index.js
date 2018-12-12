@@ -21,14 +21,25 @@ import './index.css'
 
 const buttonText = 'Copy clean wizard lines'
 const buttonTextSuccess = 'Copied!'
-const buttonTextSpelling = 'Wingardium Leviosa...'
+const buttonTextSpells = [
+  'Wingardium Leviosa...',
+  'Riddikulus...',
+  'Obliviate...',
+  'Sectumsempra...',
+  'Avada Kedavra...',
+  'Alohomora...',
+  'Lumos...',
+  'Expelliarmus...',
+  'Accio...',
+  'Expecto Patronum...',
+]
 const textAreaPlaceholderText =
   'Join the club of clean wizard line breaks..\n\n📝🧙‍💫\n\n#linewizard'
 const successMessages = [
   'The spell has broken the lines',
   'Broken the lines, the spell has',
   'The spell created new lines',
-  'Wingardium Leviosa. Lines have levitated.',
+  'Lines have levitated',
 ]
 const successMessageAction = 'Go ahead and paste on Instagram'
 const failMessages = [
@@ -135,6 +146,8 @@ const sendAnalyticsEvent = (event, text, numberOfNewLines) => {
     })
   }
 }
+
+const getMessage = (messages, index) => messages[(index - 1) % messages.length]
 
 const PasteText = () => (
   <div
@@ -400,7 +413,7 @@ class IndexPage extends Component {
             {alert => ( */}
         <Button disabled={spelling} onClick={this.onCopyButtonClick}>
           {spelling
-            ? buttonTextSpelling
+            ? getMessage(buttonTextSpells, buttonPresses)
             : buttonPresses > 0 && wasThereAnyText(text)
             ? buttonTextSuccess
             : buttonText}
@@ -428,8 +441,7 @@ class IndexPage extends Component {
               }}
             >
               <strong>
-                {successMessages[(buttonPresses - 1) % successMessages.length] +
-                  ' '}
+                {getMessage(successMessages, buttonPresses) + ' '}
                 <span
                   role="img"
                   aria-label="Stars"
@@ -465,7 +477,7 @@ class IndexPage extends Component {
               }}
             >
               <strong>
-                {failMessages[(buttonPresses - 1) % failMessages.length] + ' '}
+                {getMessage(failMessages, buttonPresses) + ' '}
                 <span
                   role="img"
                   aria-label="Woman shrugging"
