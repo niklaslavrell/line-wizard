@@ -135,7 +135,7 @@ class IndexPage extends Component {
 
     this.state = {
       text: '',
-      textWithNewLines: '',
+      // textWithNewLines: '',
       numberOfNewLines: 0,
       buttonPresses: 0,
       spelling: false,
@@ -150,7 +150,7 @@ class IndexPage extends Component {
     this.onPasteButtonClick = this.onPasteButtonClick.bind(this)
     this.onCopyButtonClick = this.onCopyButtonClick.bind(this)
     this.spell = this.spell.bind(this)
-    this.copyWithLineBreak = this.copyWithLineBreak.bind(this)
+    this.doCopyText = this.doCopyText.bind(this)
   }
 
   componentDidMount() {
@@ -181,31 +181,32 @@ class IndexPage extends Component {
 
   onTextChange(event) {
     // the text have manually been updated by the user
-    let text = event.target.value
-    let textWithNewLines = getTextWithNewLines(text)
-    let numberOfNewLines = getNumberOfNewLines(textWithNewLines)
+    const text = event.target.value
+    const textWithNewLines = getTextWithNewLines(text)
+    const numberOfNewLines = getNumberOfNewLines(textWithNewLines)
+
     this.setState({
       text: text,
-      textWithNewLines: textWithNewLines,
+      // textWithNewLines: textWithNewLines,
       numberOfNewLines: numberOfNewLines,
       buttonPresses: 0,
     })
   }
 
   doPasteText(text) {
-    let textWithNewLines = getTextWithNewLines(text)
-    let numberOfNewLines = getNumberOfNewLines(textWithNewLines)
+    const textWithNewLines = getTextWithNewLines(text)
+    const numberOfNewLines = getNumberOfNewLines(textWithNewLines)
 
     this.setState({
       text: text,
-      textWithNewLines: textWithNewLines,
+      // textWithNewLines: textWithNewLines,
       numberOfNewLines: numberOfNewLines,
       spelling: true,
       buttonPresses: this.state.buttonPresses + 1,
     })
 
     this.spell()
-    this.copyWithLineBreak(textWithNewLines)
+    this.doCopyText(textWithNewLines)
 
     sendAnalyticsEvent(analyticsEvent.PASTE, text, numberOfNewLines)
   }
@@ -230,15 +231,16 @@ class IndexPage extends Component {
 
   onCopyButtonClick(event) {
     const text = this.state.text
-    const textWithNewLines = this.state.textWithNewLines
-    const numberOfNewLines = this.state.numberOfNewLines
+    // const textWithNewLines = this.state.textWithNewLines
+    const textWithNewLines = getTextWithNewLines(this.state.text)
+    const numberOfNewLines = getNumberOfNewLines(textWithNewLines)
 
     this.setState({
       spelling: true,
       buttonPresses: this.state.buttonPresses + 1,
     })
     this.spell()
-    this.copyWithLineBreak(textWithNewLines)
+    this.doCopyText(textWithNewLines)
 
     sendAnalyticsEvent(analyticsEvent.COPY, text, numberOfNewLines)
   }
@@ -254,7 +256,7 @@ class IndexPage extends Component {
    * TODO: do something like this var copyText = event.srcElement
    * TODO: check what happens if the user blocks clipboard-write
    */
-  copyWithLineBreak(textWithNewLines) {
+  doCopyText(textWithNewLines) {
     // detect if browser supports the Clipboard API
     if (navigator.clipboard) {
       navigator.clipboard
