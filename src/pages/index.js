@@ -7,6 +7,7 @@ import { Link } from 'gatsby'
 import Button from '../components/button'
 import Image from '../components/image'
 import Layout from '../components/layout'
+import getTextWithNewLines from '../utils/spell'
 import wizard from '../images/wizard-flash-200.gif'
 import './index.css'
 
@@ -69,75 +70,6 @@ var timeout = null
  * window.addEventListener('copy', () => console.log('copy listener'))
  * window.addEventListener('cut', () => console.log('cut listener'))
  * window.addEventListener('paste', () => console.log('paste listener'))
- */
-
-/**
- * STRING REPLACE FORMULA
- */
-
-// ORIGINAL VALUES
-const getTextWithNewLines = string =>
-  string.replace(/(?:\r\n|\r|\n)/g, '\u2063\n')
-
-// ORIGINAL VALUES AS VARIABLES
-// const originalRegExp = /(?:\r\n|\r|\n)/g
-// const originalNewLineString = '\u2063\n'
-// const getTextWithNewLines = string =>
-// string.replace(originalRegExp, originalNewLineString)
-
-// ORIGINAL VALUES AS A REGEXP CONSTRUCTOR
-// const regexpString = '(?:\\r\\n|\\r|\\n)'
-// const regexpFlags = 'g'
-// const regexFromString = new RegExp(regexpString, regexpFlags)
-// const originalNewLineString = '\u2063\n'
-//   const getTextWithNewLines = string =>
-//     string.replace(regexFromString, originalNewLineString)
-
-// FROM REVERSED STRINGS
-// const reverseString = str => {
-//   return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
-// }
-// const regexpStringReversed = ')n\\|r\\|n\\r\\:?('
-// const regexpFlagsReversed = 'g'
-// const charReversed = '\n\u2063'
-// const getTextWithNewLines = string =>
-//   string.replace(
-//     new RegExp(
-//       reverseString(regexpStringReversed),
-//       reverseString(regexpFlagsReversed)
-//     ),
-//     reverseString(charReversed)
-//   )
-
-// FROM CHAR CODES REVERSED
-// const reverseString = str => {
-//   return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
-// }
-// const regexpStringReversed = ')n\\|r\\|n\\r\\:?('
-// // const regexpFlagsReversed = 'g' // charCodeAt(0)// 103
-// const regexFlagReversedCharCodeZero = 103
-
-// // const charReversed = '\n\u2063'
-// // const originalNewLineString = '\u2063\n'
-// // console.log('originalNewLineString 0', originalNewLineString.charCodeAt(0)) // 8291
-// // console.log('originalNewLineString 1', originalNewLineString.charCodeAt(1)) // 10
-// // console.log('string from char code', String.fromCharCode(10)) // \n
-
-// const newLineCharCodeZero = 8291
-// const newLineCharCodeOne = 10
-
-// const getTextWithNewLines = string =>
-//   string.replace(
-//     new RegExp(
-//       reverseString(regexpStringReversed),
-//       reverseString(String.fromCharCode(regexFlagReversedCharCodeZero))
-//     ),
-//     reverseString(String.fromCharCode(newLineCharCodeOne, newLineCharCodeZero))
-//   )
-// TO BE CONTINUED
-
-/**
- * END OF STRING REPLACE FORMULA
  */
 
 const getNumberOfNewLines = string => string.split('\u2063\n').length - 1
