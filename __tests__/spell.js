@@ -1,4 +1,5 @@
-import { getTextWithNewLines, getNumberOfNewLines } from '../src/utils/spell'
+import getTextWithNewLines from '../src/utils/spell'
+import getNumberOfNewLines from '../src/utils/noOFLines'
 
 const NEW_LINE = '\n'
 const CARRIAGE_RETURN = '\r'
