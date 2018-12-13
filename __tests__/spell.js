@@ -1,11 +1,11 @@
-import getTextWithNewLines from '../src/utils/spell'
+import { getTextWithNewLines, getNumberOfNewLines } from '../src/utils/spell'
 
 const NEW_LINE = '\n'
 const CARRIAGE_RETURN = '\r'
 const INVISIBLE_SEPARATOR = '\u2063'
 const CORRECT_RESULT = '\u2063\n'
 
-describe('Spell', () => {
+describe('getTextWithNewLines', () => {
   it('render a regular string correctly', () => {
     expect(getTextWithNewLines('hejsan hoppsan')).toBe('hejsan hoppsan')
   })
@@ -89,5 +89,54 @@ describe('Spell', () => {
     expect(getTextWithNewLines(NEW_LINE + CARRIAGE_RETURN)).toBe(
       CORRECT_RESULT + CORRECT_RESULT
     )
+  })
+})
+
+describe('getNumberOfNewLines', () => {
+  it('returns 0 from a regular string', () => {
+    expect(getNumberOfNewLines('hejsan hoppsan')).toBe(0)
+  })
+  it('returns 1 from a string with one new line', () => {
+    expect(getNumberOfNewLines('hejsan' + CORRECT_RESULT + 'hoppsan')).toBe(1)
+  })
+  it('returns 2 from a string with two new lines', () => {
+    expect(
+      getNumberOfNewLines(
+        'hejsan' + CORRECT_RESULT + 'hoppsan' + CORRECT_RESULT
+      )
+    ).toBe(2)
+  })
+  it('returns 6 from a string with six new lines', () => {
+    expect(
+      getNumberOfNewLines(
+        '1' +
+          CORRECT_RESULT +
+          '2' +
+          CORRECT_RESULT +
+          CORRECT_RESULT +
+          '3' +
+          CORRECT_RESULT +
+          CORRECT_RESULT +
+          CORRECT_RESULT +
+          '!'
+      )
+    ).toBe(6)
+  })
+  it('converts a regular string and returns 0', () => {
+    expect(getNumberOfNewLines(getTextWithNewLines('hejsan'))).toBe(0)
+  })
+  it('converts a string with new line and returns 1', () => {
+    expect(getNumberOfNewLines(getTextWithNewLines('hejsan\n'))).toBe(1)
+  })
+  it('converts a string with two new lines and returns 2', () => {
+    expect(
+      getNumberOfNewLines(getTextWithNewLines('hejsan\r\nhoppsan\n'))
+    ).toBe(2)
+  })
+  it('returns 0 from a string with new line but without invinsible separator', () => {
+    expect(getNumberOfNewLines('hejsan\nhoppsan')).toBe(0)
+  })
+  it('returns 0 from a string with new lines but without invinsible separator', () => {
+    expect(getNumberOfNewLines('hejsan\nhoppsan\r\n')).toBe(0)
   })
 })

@@ -7,7 +7,7 @@ import { Link } from 'gatsby'
 import Button from '../components/button'
 import Image from '../components/image'
 import Layout from '../components/layout'
-import getTextWithNewLines from '../utils/spell'
+import { getTextWithNewLines, getNumberOfNewLines } from '../utils/spell'
 import wizard from '../images/wizard-flash-200.gif'
 import './index.css'
 
@@ -72,7 +72,6 @@ var timeout = null
  * window.addEventListener('paste', () => console.log('paste listener'))
  */
 
-const getNumberOfNewLines = string => string.split('\u2063\n').length - 1
 const wasThereAnyText = string => string.length > 0
 
 const analyticsEvent = {
