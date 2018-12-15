@@ -516,7 +516,7 @@ class IndexPage extends Component {
                   color: 'white',
                   textDecoration: 'none',
                 }}
-                to="/help"
+                to="/help/"
               >
                 <strong>Need help?</strong>
               </Link>

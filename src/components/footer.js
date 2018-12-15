@@ -19,7 +19,7 @@ const Footer = () => (
       }}
     >
       <Link
-        to="/about"
+        to="/about/"
         style={{
           color: 'white',
           marginRight: '0.5rem',
@@ -29,7 +29,7 @@ const Footer = () => (
       </Link>
       {'|'}
       <Link
-        to="/help"
+        to="/help/"
         style={{
           color: 'white',
           marginLeft: '0.5rem',
