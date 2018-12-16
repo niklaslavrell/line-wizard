@@ -22,6 +22,7 @@ const Header = ({ siteTitle }) => (
       <h1 style={{ margin: 0, fontSize: '2em' }}>
         <Link
           to="/"
+          title={siteTitle}
           style={{
             color: 'white',
             textDecoration: 'none',

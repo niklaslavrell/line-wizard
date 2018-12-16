@@ -21,6 +21,7 @@ const Coffee = () => (
     </span>
     <OutboundLink
       href="https://www.buymeacoffee.com/hannaniklas"
+      title="Buy us a coffee on buymeacoffee.com"
       target="_blank"
       rel="noopener noreferrer"
       className="bmc-button"

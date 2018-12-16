@@ -20,6 +20,7 @@ const Footer = () => (
     >
       <Link
         to="/about/"
+        title="About"
         style={{
           color: 'white',
           marginRight: '0.5rem',
@@ -30,6 +31,7 @@ const Footer = () => (
       {'|'}
       <Link
         to="/help/"
+        title="Help"
         style={{
           color: 'white',
           marginLeft: '0.5rem',
@@ -49,6 +51,7 @@ const Footer = () => (
     >
       <OutboundLink
         href="https://www.instagram.com/linewizardclub"
+        title="Line Wizard on Instagram"
         target="_blank"
         rel="noopener noreferrer"
         style={{
@@ -61,6 +64,7 @@ const Footer = () => (
       is made for you by{' '}
       <OutboundLink
         href="https://www.instagram.com/testinproduction"
+        title="Test in Production on Instagram"
         target="_blank"
         rel="noopener noreferrer"
         style={{
