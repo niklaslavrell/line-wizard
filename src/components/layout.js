@@ -15,6 +15,7 @@ const Layout = ({ title, children }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
+            shortTitle
             title
             siteUrl
             description
@@ -28,12 +29,8 @@ const Layout = ({ title, children }) => (
           title={title}
           titleTemplate={
             title === 'Line Wizard'
-              ? `${data.site.siteMetadata.title} | ${
-                  data.site.siteMetadata.description
-                }`
-              : `%s | ${data.site.siteMetadata.title} | ${
-                  data.site.siteMetadata.description
-                }`
+              ? `${data.site.siteMetadata.title}`
+              : `%s | ${data.site.siteMetadata.title}`
           }
           meta={[
             {
@@ -140,7 +137,7 @@ const Layout = ({ title, children }) => (
             flexDirection: 'column',
           }}
         >
-          <Header siteTitle={data.site.siteMetadata.title} />
+          <Header siteTitle={data.site.siteMetadata.shortTitle} />
           <div
             style={{
               margin: '0 auto',
