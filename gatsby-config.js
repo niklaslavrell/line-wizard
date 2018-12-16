@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Line Wizard',
     siteUrl: `https://www.linewizard.club`,
-    description: `Clean Line Breaks on Your Instagram Posts with the Line Wizard`,
+    description: `Quick and Clean Line Breaks Without Dots on Your Instagram Posts with the Line Wizard`,
   },
   plugins: [
     {
