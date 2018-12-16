@@ -9,7 +9,7 @@ import metaWizard512gif from '../images/wizard-fade-purple-512.gif'
 import Header from './header'
 import Footer from './footer'
 
-const Layout = ({ children }) => (
+const Layout = ({ title, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -25,7 +25,16 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={title}
+          titleTemplate={
+            title === 'Line Wizard'
+              ? `${data.site.siteMetadata.title} | ${
+                  data.site.siteMetadata.description
+                }`
+              : `%s | ${data.site.siteMetadata.title} | ${
+                  data.site.siteMetadata.description
+                }`
+          }
           meta={[
             {
               name: 'description',

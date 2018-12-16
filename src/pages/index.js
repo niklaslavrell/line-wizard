@@ -309,7 +309,7 @@ class IndexPage extends Component {
     const { text, buttonPresses, spelling, clipboardRead, error } = this.state
 
     return (
-      <Layout>
+      <Layout title="Line Wizard">
         {/* <AlertProvider template={AlertTemplate} {...options}> */}
         <div
           style={{

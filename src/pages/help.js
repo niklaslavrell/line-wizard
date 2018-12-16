@@ -6,7 +6,7 @@ import Emoji from '../components/emoji'
 import Layout from '../components/layout'
 
 const HelpPage = () => (
-  <Layout>
+  <Layout title="Help">
     <h1>Help</h1>
     <p>
       <strong>

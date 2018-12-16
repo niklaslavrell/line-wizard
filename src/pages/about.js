@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import niklasAndHanna from '../images/niklas-and-hanna.jpg'
 
 const AboutPage = () => (
-  <Layout>
+  <Layout title="About">
     <h1>About</h1>
     <p>
       <strong>
