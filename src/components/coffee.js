@@ -27,6 +27,7 @@ const Coffee = () => (
     >
       <img
         src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
+        title="Buy us a coffee"
         alt="Buy us a coffee"
       />
       <span style={{ marginLeft: '5px' }}>Buy us a coffee</span>

@@ -26,7 +26,13 @@ const Image = () => (
         }
       }
     `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+    render={data => (
+      <Img
+        fluid={data.placeholderImage.childImageSharp.fluid}
+        title="Instagram"
+        alt="Instagram logo"
+      />
+    )}
   />
 )
 export default Image

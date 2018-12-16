@@ -369,7 +369,8 @@ class IndexPage extends Component {
           {/* positioning the wizard absolute to the form */}
           <img
             src={wizard}
-            alt="Wizard"
+            title="A wizard"
+            alt="A wizard"
             className={true && spelling ? 'wizard-animation' : ''}
             style={{
               position: 'absolute',

@@ -34,6 +34,7 @@ const Header = ({ siteTitle }) => (
         </Link>
         <img
           src={wizard}
+          title="A wizard"
           alt="A wizard"
           style={{
             display: 'inline',
