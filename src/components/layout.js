@@ -50,6 +50,10 @@ const Layout = ({ title, children }) => (
               content: `${data.site.siteMetadata.title}`,
             },
             {
+              property: 'og:site_name',
+              content: `${data.site.siteMetadata.shortTitle}`,
+            },
+            {
               property: 'og:description',
               content: `${data.site.siteMetadata.description}`,
             },
