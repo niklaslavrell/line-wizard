@@ -6,6 +6,7 @@ const Coffee = () => (
   <React.Fragment>
     <span
       style={{
+        marginTop: '0.5rem',
         marginBottom: '0.5rem',
       }}
     >

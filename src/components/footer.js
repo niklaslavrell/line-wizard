@@ -12,7 +12,7 @@ const Footer = () => (
   >
     <div
       style={{
-        padding: '0.5rem',
+        padding: '0.5rem 0.5rem 0rem',
         paddingBottom: '0rem',
         textAlign: 'center',
         color: 'white',
@@ -28,7 +28,7 @@ const Footer = () => (
       >
         <strong>About</strong>
       </Link>
-      {'|'}
+      {'∙'}
       <Link
         to="/help/"
         title="Help"
@@ -43,8 +43,7 @@ const Footer = () => (
     <div
       style={{
         margin: '0 auto',
-        maxWidth: 960,
-        padding: '0.5rem',
+        padding: '0.5rem 0.5rem 0rem',
         color: 'white',
         textAlign: 'center',
       }}
@@ -58,19 +57,49 @@ const Footer = () => (
           color: 'white',
         }}
       >
-        <strong>@linewizardclub</strong>
-      </OutboundLink>{' '}
-      is made for you by{' '}
+        <strong>Follow on Instagram</strong>
+      </OutboundLink>
+    </div>
+    <div
+      style={{
+        margin: '0 auto',
+        padding: '0.5rem 0.5rem 0rem',
+        color: 'white',
+        textAlign: 'center',
+      }}
+    >
       <OutboundLink
-        href="https://www.instagram.com/testinproduction"
-        title="Test in Production on Instagram"
+        href={
+          'https://www.facebook.com/sharer/sharer.php?' +
+          'u=https%3A%2F%2Flinewizard.club'
+        }
+        title="Share Line Wizard on Facebook"
         target="_blank"
         rel="noopener noreferrer"
         style={{
           color: 'white',
+          marginRight: '0.5rem',
         }}
       >
-        <strong>@testinproduction</strong>
+        <strong>Share on Facebook</strong>
+      </OutboundLink>
+      {'∙'}
+      <OutboundLink
+        href={
+          'https://twitter.com/intent/tweet/?' +
+          'text=Get%20clean%20line%20breaks%20on%20your%20Instagram%20posts' +
+          '&url=https%3A%2F%2Fwww.linewizard.club' +
+          '&hashtags=linewizard,cleaninstalinebreaks'
+        }
+        title="Share Line Wizard on Twitter"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          color: 'white',
+          marginLeft: '0.5rem',
+        }}
+      >
+        <strong>Share on Twitter</strong>
       </OutboundLink>
     </div>
     <div
