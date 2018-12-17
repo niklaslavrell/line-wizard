@@ -32,6 +32,7 @@ module.exports = {
         theme_color: '#8821AC',
         display: 'standalone',
         icon: 'src/images/wizard-purple-512.png', // This path is relative to the root of the site.
+        legacy: true, // this will add apple-touch-icon links to <head>
       },
     },
     {
