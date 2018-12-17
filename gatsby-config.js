@@ -48,9 +48,9 @@ module.exports = {
     },
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-netlify',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
+    'gatsby-plugin-offline',
   ],
 }
