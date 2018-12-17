@@ -24,7 +24,7 @@
     "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
-    "react-transition-group": "^2.5.0",
+    "react-transition-group": "^2.5.1",
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
     "typography-theme-moraga": "^0.16.18"
