@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import favIconWizard from '../images/wizard-purple-192.png'
 import metaWizard512png from '../images/wizard-purple-512.png'
 import metaWizard512gif from '../images/wizard-fade-purple-512.gif'
+import 'typeface-source-sans-pro'
 
 import Header from './header'
 import Footer from './footer'

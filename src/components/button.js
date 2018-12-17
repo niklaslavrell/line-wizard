@@ -15,7 +15,7 @@ const Button = props => (
         padding: '0.75rem',
         background: '#ffdd00',
         color: 'black',
-        fontWeight: '600',
+        fontWeight: '700',
         width: '100%',
         maxWidth: '500px',
         borderRadius: '2rem',
