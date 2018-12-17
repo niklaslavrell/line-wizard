@@ -64,7 +64,7 @@ const Layout = ({ title, children }) => (
             /* static png image */
             {
               property: 'og:image',
-              content: `${metaWizard512png}`,
+              content: `${data.site.siteMetadata.siteUrl}${metaWizard512png}`,
             },
             {
               property: 'og:image:type',
@@ -81,7 +81,7 @@ const Layout = ({ title, children }) => (
             /* animated gif image */
             {
               property: 'og:image',
-              content: `${metaWizard512gif}`,
+              content: `${data.site.siteMetadata.siteUrl}${metaWizard512gif}`,
             },
             {
               property: 'og:image:type',
@@ -117,7 +117,7 @@ const Layout = ({ title, children }) => (
             },
             {
               name: 'twitter:image',
-              content: `${metaWizard512png}`,
+              content: `${data.site.siteMetadata.siteUrl}${metaWizard512png}`,
             },
             {
               name: 'google-site-verification',
