@@ -21,7 +21,7 @@ import './index.css'
 //   type: 'success',
 // }
 
-const buttonText = 'Copy clean wizard lines'
+const buttonText = 'Copy clean line breaks'
 const buttonTextSuccess = 'Copied!'
 const buttonTextSpells = [
   'Wingardium Leviosa...',
@@ -36,7 +36,7 @@ const buttonTextSpells = [
   'Expecto Patronum...',
 ]
 const textAreaPlaceholderText =
-  'Join the club of clean wizard line breaks..\n\n📝🧙‍💫\n\n#linewizard'
+  'Get Clean Line Breaks on Your Instagram Posts\n\n📝🧙‍💫\n\n#linewizard #cleaninstalinebreaks'
 const successMessages = [
   'The spell has broken the lines',
   'Broken the lines, the spell has',
