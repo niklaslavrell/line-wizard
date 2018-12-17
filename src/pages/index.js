@@ -515,7 +515,6 @@ class IndexPage extends Component {
               <Link
                 style={{
                   color: 'white',
-                  textDecoration: 'none',
                 }}
                 to="/help/"
               >

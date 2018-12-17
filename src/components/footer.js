@@ -56,7 +56,6 @@ const Footer = () => (
         rel="noopener noreferrer"
         style={{
           color: 'white',
-          textDecoration: 'none',
         }}
       >
         <strong>@linewizardclub</strong>
@@ -69,7 +68,6 @@ const Footer = () => (
         rel="noopener noreferrer"
         style={{
           color: 'white',
-          textDecoration: 'none',
         }}
       >
         <strong>@testinproduction</strong>
