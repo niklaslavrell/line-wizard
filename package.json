@@ -20,8 +20,6 @@
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-transformer-sharp": "^2.1.8",
     "react": "^16.6.3",
-    "react-alert": "^4.0.4",
-    "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
     "react-transition-group": "^2.5.1",

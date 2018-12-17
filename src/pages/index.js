@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
-// import { Provider as AlertProvider, Alert } from 'react-alert'
-// import AlertTemplate from 'react-alert-template-basic'
-// import { withAlert } from 'react-alert'
 
 import Button from '../components/button'
 import Image from '../components/image'
@@ -11,15 +8,6 @@ import getTextWithNewLines from '../utils/spell'
 import getNumberOfNewLines from '../utils/noOfLines'
 import wizard from '../images/wizard-flash-200.gif'
 import './index.css'
-
-// optional cofiguration
-// const options = {
-//   position: 'bottom center',
-//   timeout: 0, // 5000
-//   offset: '30px',
-//   transition: 'scale', // oneOf(['fade', 'scale']
-//   type: 'success',
-// }
 
 const buttonText = 'Copy clean line breaks'
 const buttonTextSuccess = 'Copied!'
@@ -301,8 +289,6 @@ class IndexPage extends Component {
       document.execCommand('copy')
       textAreaElement.blur()
     }
-    // alert('Success')
-    // alert.show('The lines have been broken 💫\nGo ahead and paste on insta 🎉')
   }
 
   render() {
@@ -310,7 +296,6 @@ class IndexPage extends Component {
 
     return (
       <Layout title="Line Wizard">
-        {/* <AlertProvider template={AlertTemplate} {...options}> */}
         <div
           style={{
             fontWeight: '700',
@@ -393,8 +378,6 @@ class IndexPage extends Component {
             marginTop: '-1.4rem',
           }}
         />
-        {/* <Alert>
-            {alert => ( */}
         {/* push the button back up with a minus margin */}
         <Button
           style={{ marginTop: '-4rem' }}
@@ -408,8 +391,6 @@ class IndexPage extends Component {
             : buttonText}
         </Button>
 
-        {/* )}
-          </Alert> */}
         <div
           style={{
             minHeight: '3.75rem',
@@ -523,7 +504,6 @@ class IndexPage extends Component {
             </div>
           ) : null}
         </div>
-        {/* </AlertProvider> */}
       </Layout>
     )
   }
