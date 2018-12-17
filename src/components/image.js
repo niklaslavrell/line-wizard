@@ -19,7 +19,7 @@ const Image = () => (
       query {
         placeholderImage: file(relativePath: { eq: "instaicon.png" }) {
           childImageSharp {
-            fluid(maxWidth: 20) {
+            fluid(maxWidth: 23) {
               ...GatsbyImageSharpFluid
             }
           }
