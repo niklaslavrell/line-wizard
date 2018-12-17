@@ -51,7 +51,7 @@ _Currently in use_
 
    ```sh
    # install the node dependencies
-   npm install
+   yarn install
    ```
 
 2. Run in development mode
