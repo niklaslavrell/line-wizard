@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Button from '../components/button'
 import Emoji from '../components/emoji'
 import Layout from '../components/layout'
-import niklasAndHanna from '../images/niklas-and-hanna.jpg'
 
-const AboutPage = () => (
+const AboutPage = ({ data }) => (
   <Layout title="About">
     <h1>About</h1>
     <p>
@@ -18,7 +18,26 @@ const AboutPage = () => (
       We are a nomad couple travelling and building products we hope people will
       love <Emoji symbol="💚" />
     </p>
-    <img src={niklasAndHanna} alt="Niklas and Hanna" />
+    <StaticQuery
+      query={graphql`
+        query {
+          placeholderImage: file(relativePath: { eq: "niklas-and-hanna.jpg" }) {
+            childImageSharp {
+              fluid(maxWidth: 555) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      `}
+      render={data => (
+        <Img
+          fluid={data.placeholderImage.childImageSharp.fluid}
+          title="Niklas and Hanna"
+          alt="Niklas and Hanna"
+        />
+      )}
+    />
     <p>
       You can find us at <a href="https://www.lavrell.se">Niklas website</a> and{' '}
       <a href="https://www.hannasoderquist.se">Hannas website</a>. Here are some
