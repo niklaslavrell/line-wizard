@@ -5,7 +5,7 @@
   "author": "Niklas Lavrell <niklas.lavrell@gmail.com>",
   "private": true,
   "dependencies": {
-    "gatsby": "^2.0.68",
+    "gatsby": "^2.0.70",
     "gatsby-image": "^2.0.25",
     "gatsby-plugin-canonical-urls": "^2.0.8",
     "gatsby-plugin-google-analytics": "^2.0.8",
