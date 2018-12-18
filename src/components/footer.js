@@ -57,7 +57,7 @@ const Footer = () => (
           color: 'white',
         }}
       >
-        <strong>Follow on Instagram</strong>
+        <strong>Give feedback @linewizardclub</strong>
       </OutboundLink>
     </div>
     <div
