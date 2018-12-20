@@ -55,9 +55,23 @@ const Footer = () => (
         rel="noopener noreferrer"
         style={{
           color: 'white',
+          marginRight: '0.5rem',
         }}
       >
-        <strong>Give feedback @linewizardclub</strong>
+        <strong>Tag @linewizardclub</strong>
+      </OutboundLink>
+      {'∙'}
+      <OutboundLink
+        href="https://www.producthunt.com/posts/line-wizard"
+        title="Line Wizard on Product Hunt"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          color: 'white',
+          marginLeft: '0.5rem',
+        }}
+      >
+        <strong>Product Hunt</strong>
       </OutboundLink>
     </div>
     <div
