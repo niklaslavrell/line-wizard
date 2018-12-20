@@ -305,7 +305,14 @@ class IndexPage extends Component {
   }
 
   render() {
-    const { text, buttonPresses, spelling, clipboardRead, error } = this.state
+    const {
+      text,
+      numberOfNewLines,
+      buttonPresses,
+      spelling,
+      clipboardRead,
+      error,
+    } = this.state
 
     return (
       <Layout title="Line Wizard">
@@ -435,7 +442,10 @@ class IndexPage extends Component {
                 </span>
               </strong>
             </div>
-          ) : buttonPresses > 0 && !spelling && wasThereAnyText(text) ? (
+          ) : buttonPresses > 0 &&
+            !spelling &&
+            wasThereAnyText(text) &&
+            numberOfNewLines > 0 ? (
             <div
               style={{
                 padding: '0.3rem 0.5rem',
