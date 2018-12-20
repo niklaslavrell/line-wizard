@@ -140,6 +140,7 @@ class IndexPage extends Component {
     this.onCopyButtonClick = this.onCopyButtonClick.bind(this)
     this.spell = this.spell.bind(this)
     this.doCopyText = this.doCopyText.bind(this)
+    this.doCopyTextInLegacyWay = this.doCopyTextInLegacyWay.bind(this)
   }
 
   componentDidMount() {
@@ -241,8 +242,7 @@ class IndexPage extends Component {
     }, 1500)
   }
 
-  /**
-   * TODO: do something like this var copyText = event.srcElement
+  /*
    * TODO: check what happens if the user blocks clipboard-write
    */
   doCopyText(textWithNewLines) {
@@ -254,41 +254,54 @@ class IndexPage extends Component {
           this.setState({ error: null })
         })
         .catch(err => {
-          console.error('Failed to write to clipboard:', err)
+          console.error(
+            'Failed to write to clipboard with the Clipboard API:',
+            err
+          )
           this.checkClipboardPermissions()
-          this.setState({ error: 'Failed to write to clipboard' })
+
+          // fallback to legacy way if clipboard api fails
+          // this.setState({ error: 'Failed to write to clipboard' })
+          this.doCopyTextInLegacyWay(textWithNewLines)
         })
     } else {
-      // using trying legacy version
-      var textAreaElement = document.getElementById('text')
-      textAreaElement.value = textWithNewLines
-
-      let ua = navigator.userAgent.toLocaleLowerCase()
-      if (ua.includes('iphone') || ua.includes('ipad')) {
-        const contentEditable = textAreaElement.contentEditable
-        textAreaElement.contentEditable = true
-
-        const readOnly = textAreaElement.readOnly
-        textAreaElement.readOnly = true
-
-        let range = document.createRange()
-        range.selectNodeContents(textAreaElement)
-
-        let selection = window.getSelection()
-        selection.removeAllRanges()
-        selection.addRange(range)
-
-        textAreaElement.setSelectionRange(0, 1000000)
-
-        textAreaElement.contentEditable = contentEditable
-        textAreaElement.readOnly = readOnly
-      } else {
-        textAreaElement.select()
-      }
-
-      document.execCommand('copy')
-      textAreaElement.blur()
+      this.doCopyTextInLegacyWay(textWithNewLines)
     }
+  }
+
+  /**
+   * TODO: do something like this var copyText = event.srcElement
+   */
+  doCopyTextInLegacyWay(textWithNewLines) {
+    // using trying legacy version
+    var textAreaElement = document.getElementById('text')
+    textAreaElement.value = textWithNewLines
+
+    let ua = navigator.userAgent.toLocaleLowerCase()
+    if (ua.includes('iphone') || ua.includes('ipad')) {
+      const contentEditable = textAreaElement.contentEditable
+      textAreaElement.contentEditable = true
+
+      const readOnly = textAreaElement.readOnly
+      textAreaElement.readOnly = true
+
+      let range = document.createRange()
+      range.selectNodeContents(textAreaElement)
+
+      let selection = window.getSelection()
+      selection.removeAllRanges()
+      selection.addRange(range)
+
+      textAreaElement.setSelectionRange(0, 1000000)
+
+      textAreaElement.contentEditable = contentEditable
+      textAreaElement.readOnly = readOnly
+    } else {
+      textAreaElement.select()
+    }
+
+    document.execCommand('copy')
+    textAreaElement.blur()
   }
 
   render() {
