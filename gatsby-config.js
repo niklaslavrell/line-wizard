@@ -28,7 +28,7 @@ module.exports = {
       options: {
         name: 'Line Wizard',
         short_name: 'Line Wizard',
-        start_url: '/',
+        start_url: '/?source=pwa',
         background_color: '#8821AC',
         theme_color: '#8821AC',
         display: 'standalone',
