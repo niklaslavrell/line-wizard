@@ -7,7 +7,7 @@ const Button = props => (
   <button
     type="button"
     onClick={props.onClick && props.onClick}
-    className="button"
+    className={!!props.active ? 'button active' : 'button'}
     disabled={!!props.disabled}
     style={Object.assign(
       {

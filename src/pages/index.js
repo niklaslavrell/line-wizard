@@ -6,6 +6,7 @@ import Image from '../components/image'
 import Layout from '../components/layout'
 import getTextWithNewLines from '../utils/spell'
 import getNumberOfNewLines from '../utils/noOfLines'
+import getBoldText from '../utils/unicodeMap.js'
 import wizard from '../images/wizard-flash-200.gif'
 import './index.css'
 
@@ -131,6 +132,7 @@ class IndexPage extends Component {
       clipboardRead: null,
       clipboardWrite: null,
       error: null,
+      bold: false,
     }
 
     this.checkClipboardPermissions = this.checkClipboardPermissions.bind(this)
@@ -176,7 +178,8 @@ class IndexPage extends Component {
     const numberOfNewLines = getNumberOfNewLines(textWithNewLines)
 
     this.setState({
-      text: text,
+      // text: text,
+      text: this.state.bold ? getBoldText(text) : text,
       // textWithNewLines: textWithNewLines,
       numberOfNewLines: numberOfNewLines,
       buttonPresses: 0,
@@ -341,6 +344,17 @@ class IndexPage extends Component {
             )}
           </div>
         </div>
+        <Button
+          onClick={() => {
+            this.setState({ bold: !this.state.bold })
+          }}
+          active={this.state.bold}
+          style={{
+            marginBottom: '0.2rem',
+          }}
+        >
+          Bold Text
+        </Button>
         {/* form should be position relative to make the wizard relative to it */}
         <form
           style={{

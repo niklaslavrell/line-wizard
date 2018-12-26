@@ -6,6 +6,10 @@
   transition: 0.2s all linear;
 }
 
+.active {
+  opacity: 0.5;
+}
+
 .button:hover,
 .button:active,
 .button:focus {
