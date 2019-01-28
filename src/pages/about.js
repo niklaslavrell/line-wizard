@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import Button from '../components/button'
 import Emoji from '../components/emoji'
 import Layout from '../components/layout'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 const AboutPage = ({ data }) => (
   <Layout title="About">
@@ -39,43 +40,54 @@ const AboutPage = ({ data }) => (
       )}
     />
     <p>
-      You can find us at <a href="https://www.lavrell.se">Niklas website</a> and{' '}
-      <a href="https://www.hannasoderquist.se">Hannas website</a>. Here are some
-      other products that we are making at the moment:
+      You can find us at{' '}
+      <OutboundLink href="https://www.lavrell.se">Niklas website</OutboundLink>{' '}
+      and{' '}
+      <OutboundLink href="https://www.hannasoderquist.se">
+        Hannas website
+      </OutboundLink>
+      . Here are some other products that we are making at the moment:
+    </p>
+    <p>
+      <Emoji symbol="📸" />{' '}
+      <OutboundLink href="https://www.focolio.com">
+        <strong>Focolio</strong>
+      </OutboundLink>{' '}
+      - find photographers
     </p>
     <p>
       <Emoji symbol="💁‍" />{' '}
-      <a href="https://www.letsborrowit.com">
+      <OutboundLink href="https://www.letsborrowit.com">
         <strong>Let's Borrowit</strong>
-      </a>{' '}
+      </OutboundLink>{' '}
       - make people consume less and borrow more
     </p>
     <p>
       <Emoji symbol="🏡" />{' '}
-      <a href="https://www.botillsammans.nu">
+      <OutboundLink href="https://www.botillsammans.nu">
         <strong>Bo Tillsammans</strong>
-      </a>{' '}
+      </OutboundLink>{' '}
       - find roommates, live together
     </p>
     <p>
       <Emoji symbol="🤖" />{' '}
-      <a href="https://www.chekr.app">
+      <OutboundLink href="https://www.chekr.app">
         <strong>Chekr</strong>
-      </a>{' '}
+      </OutboundLink>{' '}
       - bot that watch our stocks, so we can spend time on other stuff
     </p>
     <p>
       <Emoji symbol="🚀" />{' '}
-      <a href="https://www.swedishtechmakers.com">
+      <OutboundLink href="https://www.swedishtechmakers.com">
         <strong>Swedish Tech Makers</strong>
-      </a>{' '}
+      </OutboundLink>{' '}
       - community with people that want to ship
     </p>
     <p>
       <Emoji symbol="🌱" />{' '}
-      <a href="https://www.thehappylist.io">
+      <OutboundLink href="https://www.thehappylist.io">
         <strong>The Happy List</strong>
-      </a>{' '}
+      </OutboundLink>{' '}
       - articles and talks that helps us grow
     </p>
     <Link to="/">
