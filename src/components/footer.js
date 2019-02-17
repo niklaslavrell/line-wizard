@@ -58,20 +58,7 @@ const Footer = () => (
           marginRight: '0.5rem',
         }}
       >
-        <strong>Tag @linewizardclub</strong>
-      </OutboundLink>
-      {'∙'}
-      <OutboundLink
-        href="https://www.producthunt.com/posts/line-wizard"
-        title="Line Wizard on Product Hunt"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          color: 'white',
-          marginLeft: '0.5rem',
-        }}
-      >
-        <strong>Product Hunt</strong>
+        <strong>Tag @linewizardclub on Instagram</strong>
       </OutboundLink>
     </div>
     <div
