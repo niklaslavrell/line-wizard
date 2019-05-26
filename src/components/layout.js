@@ -124,6 +124,10 @@ const Layout = ({ title, children }) => (
               name: 'google-site-verification',
               content: 'KAONSdquRMnfjs7Fkd2LBbH9BSIayGycWajfH1QERvc',
             },
+            {
+              name: 'apple-mobile-web-app-status-bar-style',
+              content: 'black-translucent',
+            },
           ]}
           link={[
             {
@@ -145,14 +149,19 @@ const Layout = ({ title, children }) => (
           <Header siteTitle={data.site.siteMetadata.shortTitle} />
           <div
             style={{
-              margin: '0 auto',
-              maxWidth: '33rem',
-              padding: '0px 1.0875rem 1.45rem',
-              paddingTop: 0,
-              flexGrow: 1,
+              backgroundColor: 'white',
             }}
           >
-            {children}
+            <div
+              style={{
+                margin: '0 auto',
+                maxWidth: '26rem',
+                padding: '1.45rem 1.0875rem',
+                flexGrow: 1,
+              }}
+            >
+              {children}
+            </div>
           </div>
           <Footer />
         </div>
