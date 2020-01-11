@@ -149,19 +149,13 @@ const Layout = ({ title, children }) => (
           <Header siteTitle={data.site.siteMetadata.shortTitle} />
           <div
             style={{
-              backgroundColor: 'white',
+              margin: '0 auto',
+              maxWidth: '26rem',
+              padding: '1.45rem 1.0875rem',
+              flexGrow: 1,
             }}
           >
-            <div
-              style={{
-                margin: '0 auto',
-                maxWidth: '26rem',
-                padding: '1.45rem 1.0875rem',
-                flexGrow: 1,
-              }}
-            >
-              {children}
-            </div>
+            {children}
           </div>
           <Footer />
         </div>
