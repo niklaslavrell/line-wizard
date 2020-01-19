@@ -6,6 +6,11 @@
 
 > Clean Line Breaks on Your Instagram Posts with the Line Wizard
 
+### Mentions
+
+- [quantummarketer.com: Instagram: alla dolda funktioner och hacks du borde känna till](https://teknifik.se/2017/03/instagram-stories-dolda-funktioner-och-hacks/)
+- [teknifik.se: How to Add Spaces & Line Breaks to Your Instagram Bio & Captions](https://quantummarketer.com/add-spaces-line-breaks-bio-captions-instagram/)
+
 ## Development
 
 1. Install the node dependencies
