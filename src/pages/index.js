@@ -411,11 +411,7 @@ class IndexPage extends Component {
             : buttonText}
         </Button>
 
-        <div
-          style={{
-            minHeight: '3.75rem',
-          }}
-        >
+        <div>
           {error ? (
             <div
               style={{
