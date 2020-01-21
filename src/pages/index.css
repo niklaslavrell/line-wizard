@@ -1,16 +1,6 @@
-/**
-* Enable these to make purple nav bar on iOS.
-* See first commit 6442da04.
-* Unfortunately, these made the wizard not show up
-* because he has z-index: -10, so we need a transparent body.
-*/
-/* body {
+body {
   background-color: #8821ac;
 }
-
-#___gatsby {
-  background-color: white;
-} */
 
 .textarea:disabled {
   background-color: #ffdc000f;
