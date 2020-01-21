@@ -400,7 +400,7 @@ class IndexPage extends Component {
         />
         {/* push the button back up with a minus margin */}
         <Button
-          style={{ marginTop: '-4rem' }}
+          style={{ display: 'block', marginTop: '-4rem' }}
           disabled={spelling}
           onClick={this.onCopyButtonClick}
         >

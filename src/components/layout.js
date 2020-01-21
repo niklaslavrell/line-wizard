@@ -154,6 +154,9 @@ const Layout = ({ title, children }) => (
               maxWidth: '26rem',
               padding: '1.45rem 1.0875rem',
               flexGrow: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
             }}
           >
             {children}
