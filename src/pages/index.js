@@ -410,19 +410,6 @@ class IndexPage extends Component {
             ? buttonTextSuccess
             : buttonText}
         </Button>
-        {/* the body should be purple to make the header nice in mobile */}
-        {/* this is a div to make the background white again w/o hiding the wizard */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            right: 0,
-            width: '100%',
-            background: 'white',
-            zIndex: -20,
-          }}
-        />
 
         <div
           style={{

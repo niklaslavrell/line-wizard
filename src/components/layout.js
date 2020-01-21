@@ -144,6 +144,7 @@ const Layout = ({ title, children }) => (
             display: 'flex',
             minHeight: '100vh',
             flexDirection: 'column',
+            position: 'relative', // make the white backdrop relative this div
           }}
         >
           <Header siteTitle={data.site.siteMetadata.shortTitle} />
@@ -157,6 +158,19 @@ const Layout = ({ title, children }) => (
           >
             {children}
           </div>
+          {/* the body should be purple to make the header nice in mobile */}
+          {/* this is a div to make the background white again w/o hiding the wizard */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              right: 0,
+              width: '100%',
+              background: 'white',
+              zIndex: -20,
+            }}
+          />
           <Footer />
         </div>
       </>
