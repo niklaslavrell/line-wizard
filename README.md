@@ -17,20 +17,20 @@
 
 1. Install the node dependencies
 
-   ```sh
+   ```bash
    # install the node dependencies
-   yarn install
+   yarn
    ```
 
 2. Run in development mode
 
-   ```sh
+   ```bash
    # run in development mode
-   gatsby develop
+   yarn start
    ```
 
 3. Run tests
-   ```sh
+   ```bash
    # run the tests
    yarn test
    ```
