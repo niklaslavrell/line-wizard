@@ -391,10 +391,10 @@ class IndexPage extends Component {
         </form>
         {/* a div to hide the wizard behind in the animation */}
         <div
+          className="background"
           style={{
             width: '100%',
             height: '5rem',
-            background: 'white',
             marginTop: '-1.4rem',
           }}
         />

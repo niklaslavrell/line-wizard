@@ -21,7 +21,6 @@ const Button = props => (
         borderRadius: '2rem',
         textTransform: 'uppercase',
         border: '0rem',
-        boxShadow: '0px 2px 2px lightgray',
         letterSpacing: '0.075rem',
         fontSize: '1.1rem',
         marginBottom: '1rem',

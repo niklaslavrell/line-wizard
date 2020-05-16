@@ -65,9 +65,6 @@ const HelpPage = () => (
         title="Line Wizard on Instagram"
         target="_blank"
         rel="noopener noreferrer"
-        style={{
-          color: '#000000b3',
-        }}
       >
         <strong>@linewizardclub</strong>
       </OutboundLink>{' '}

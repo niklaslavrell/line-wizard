@@ -4,6 +4,14 @@
   -moz-transition: 0.2s all linear;
   -ms-transition: 0.2s all linear;
   transition: 0.2s all linear;
+
+  box-shadow: '0px 2px 2px lightgray';
+}
+
+@media (prefers-color-scheme: dark) {
+  .button {
+    box-shadow: none;
+  }
 }
 
 .button:hover,

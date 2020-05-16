@@ -2,21 +2,39 @@ body {
   background-color: #8821ac;
 }
 
+.background {
+  background-color: white;
+}
+
 .textarea:disabled {
   background-color: #ffdc000f;
 }
 
+@media (prefers-color-scheme: dark) {
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: white;
+  }
+
+  .background {
+    background-color: #333;
+  }
+}
+
 .wizard-animation {
-  animation: wizard-appear 1 0.3s linear,
-    /* wizard-stay 1 1.1s linear 0.5s, */ wizard-disappear 1 0.3s linear 1.2s;
-  /* -o-animation: wizard-appear 1 0.2s linear, wizard-stay 1 1.1s linear 0.2s,
+  /* animation: wizard-appear 1 0.3s linear, wizard-stay 1 1.1s linear 0.5s, wizard-disappear 1 0.3s linear 1.2s; */
+  animation: wizard-appear 1 0.3s linear, wizard-disappear 1 0.3s linear 1.2s;
+  -o-animation: wizard-appear 1 0.2s linear, wizard-disappear 1 0.2s linear 1.3s;
+  -webkit-animation: wizard-appear 1 0.2s linear,
     wizard-disappear 1 0.2s linear 1.3s;
-  -webkit-animation: wizard-appear 1 0.2s linear, wizard-stay 1 1.1s linear 0.2s,
+  -moz-animation: wizard-appear 1 0.2s linear,
     wizard-disappear 1 0.2s linear 1.3s;
-  -moz-animation: wizard-appear 1 0.2s linear, wizard-stay 1 1.1s linear 0.2s,
+  -ms-animation: wizard-appear 1 0.2s linear,
     wizard-disappear 1 0.2s linear 1.3s;
-  -ms-animation: wizard-appear 1 0.2s linear, wizard-stay 1 1.1s linear 0.2s,
-    wizard-disappear 1 0.2s linear 1.3s; */
 }
 
 /* @keyframes wizard-spin {
