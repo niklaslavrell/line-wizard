@@ -70,13 +70,6 @@ const AboutPage = () => {
         - find roommates, live together
       </p>
       <p>
-        <Emoji symbol="🤖" />{' '}
-        <OutboundLink href="https://www.chekr.app">
-          <strong>Chekr</strong>
-        </OutboundLink>{' '}
-        - bot that watch our stocks, so we can spend time on other stuff
-      </p>
-      <p>
         <Emoji symbol="🚀" />{' '}
         <OutboundLink href="https://www.swedishtechmakers.com">
           <strong>Swedish Tech Makers</strong>
@@ -84,11 +77,11 @@ const AboutPage = () => {
         - community with people that want to ship
       </p>
       <p>
-        <Emoji symbol="🌱" />{' '}
-        <OutboundLink href="https://www.thehappylist.io">
-          <strong>The Happy List</strong>
+        <Emoji symbol="🤖" />{' '}
+        <OutboundLink href="https://www.chekr.app">
+          <strong>Chekr</strong>
         </OutboundLink>{' '}
-        - articles and talks that helps us grow
+        - bot that watch our stocks, so we can spend time on other stuff
       </p>
       <Link to="/">
         <Button>Cool, back to the Line Wizard</Button>
