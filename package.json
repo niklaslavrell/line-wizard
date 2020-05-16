@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "author": "Niklas Lavrell <niklas.lavrell@gmail.com>",
   "private": true,
+  "engines": {
+    "node": "^12"
+  },
   "dependencies": {
     "gatsby": "^2.0.72",
     "gatsby-image": "^2.0.25",
