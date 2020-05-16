@@ -8,8 +8,10 @@
 
 ### Mentions
 
-- [quantummarketer.com: Instagram: alla dolda funktioner och hacks du borde känna till](https://teknifik.se/2017/03/instagram-stories-dolda-funktioner-och-hacks/)
-- [teknifik.se: How to Add Spaces & Line Breaks to Your Instagram Bio & Captions](https://quantummarketer.com/add-spaces-line-breaks-bio-captions-instagram/)
+- [teknifik.se: Instagram: alla dolda funktioner och hacks du borde känna till](https://teknifik.se/2017/03/instagram-stories-dolda-funktioner-och-hacks/)
+- [quantummarketer.com: How to Add Spaces & Line Breaks to Your Instagram Bio & Captions](https://quantummarketer.com/add-spaces-line-breaks-bio-captions-instagram/)
+- [ghostfire.io: Having Trouble Making Line Breaks on Instagram in 2020?](https://ghostfire.io/having-trouble-making-line-breaks-on-instagram-in-2020/)
+- [lenadahlin.se: Smarta digitala verktyg](https://www.lenadahlin.se/smarta-digitala-verktyg/)
 
 ## Development
 
