@@ -77,11 +77,11 @@ const AboutPage = () => {
         - community with people that want to ship
       </p>
       <p>
-        <Emoji symbol="🤖" />{' '}
-        <OutboundLink href="https://www.chekr.app">
-          <strong>Chekr</strong>
+        <Emoji symbol="🤳" />{' '}
+        <OutboundLink href="https://www.grapic.co">
+          <strong>Grapic</strong>
         </OutboundLink>{' '}
-        - bot that watch our stocks, so we can spend time on other stuff
+        - the old-new way to remote whiteboard with your colleagues
       </p>
       <Link to="/">
         <Button>Cool, back to the Line Wizard</Button>
