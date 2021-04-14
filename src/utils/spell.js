@@ -2,14 +2,14 @@
  * Returns a correctly formatted string with proper new line breaks
  * Code has been made a bit complex, so it is harder to read the source code
  */
-const getTextWithNewLines = string => {
+const getTextWithNewLines = (string) => {
   //   const REGEXP = /(?:\r\n|\r|\n)/g
   //   const CORRECT_RESULT = '\u2063\n'
 
   //   const REGEXP_AS_STRING = '(?:\\r\\n|\\r|\\n)'
   //   const REGEXP_FLAG_AS_STRING = 'g'
 
-  const reverseString = str => {
+  const reverseString = (str) => {
     return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0)
   }
 

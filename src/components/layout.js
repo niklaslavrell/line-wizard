@@ -24,7 +24,7 @@ const Layout = ({ title, children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet
           title={title}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import './button.css'
 
-const Button = props => (
+const Button = (props) => (
   <button
     type="button"
     onClick={props.onClick && props.onClick}

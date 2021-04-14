@@ -61,7 +61,7 @@ var timeout = null
  * window.addEventListener('paste', () => console.log('paste listener'))
  */
 
-const wasThereAnyText = string => string.length > 0
+const wasThereAnyText = (string) => string.length > 0
 
 const analyticsEvent = {
   PASTE: 'PASTE',
@@ -152,14 +152,14 @@ class IndexPage extends Component {
     if (navigator.permissions) {
       navigator.permissions
         .query({ name: 'clipboard-read' })
-        .then(permission => {
+        .then((permission) => {
           that.setState({
             clipboardRead: permission.state, // 'granted', 'denied' or 'prompt'
           })
         })
       navigator.permissions
         .query({ name: 'clipboard-write' })
-        .then(permission => {
+        .then((permission) => {
           that.setState({
             clipboardWrite: permission.state, // 'granted', 'denied' or 'prompt'
           })
@@ -205,11 +205,11 @@ class IndexPage extends Component {
     if (navigator.clipboard) {
       navigator.clipboard
         .readText()
-        .then(clipboardText => {
+        .then((clipboardText) => {
           this.doPasteText(clipboardText)
           this.setState({ error: null })
         })
-        .catch(err => {
+        .catch((err) => {
           console.error('Failed to read from clipboard:', err)
           this.checkClipboardPermissions()
           this.setState({ error: 'Failed to read from clipboard' })
@@ -253,7 +253,7 @@ class IndexPage extends Component {
         .then(() => {
           this.setState({ error: null })
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(
             'Failed to write to clipboard with the Clipboard API:',
             err
