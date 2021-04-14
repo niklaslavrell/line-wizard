@@ -1,5 +1,18 @@
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   background-color: #8821ac;
+}
+
+body,
+#___gatsby,
+#gatsby-focus-wrapper,
+.fill-height {
+  height: 100vh;
+  /* mobile viewport bug fix */
+  height: -webkit-fill-available;
 }
 
 .background {

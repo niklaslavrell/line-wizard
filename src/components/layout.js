@@ -140,11 +140,9 @@ const Layout = ({ title, children }) => (
           <html lang="en" />
         </Helmet>
         <div
+          className="fill-height" // using a class here because inline style doesn't allow duplicate keys
           style={{
             display: 'flex',
-            minHeight: '100vh',
-            // eslint-disable-next-line no-dupe-keys
-            minHeight: '-webkit-fill-available', // mobile viewport bug fix
             flexDirection: 'column',
             position: 'relative', // make the white backdrop relative this div
           }}
