@@ -5,7 +5,7 @@
   "author": "Niklas Lavrell <niklas.lavrell@gmail.com>",
   "private": true,
   "engines": {
-    "node": "^12"
+    "node": "12"
   },
   "dependencies": {
     "gatsby": "^2.0.72",
