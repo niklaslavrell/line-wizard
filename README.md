@@ -12,6 +12,7 @@
 - [quantummarketer.com: How to Add Spaces & Line Breaks to Your Instagram Bio & Captions](https://quantummarketer.com/add-spaces-line-breaks-bio-captions-instagram/)
 - [ghostfire.io: Having Trouble Making Line Breaks on Instagram in 2020?](https://ghostfire.io/having-trouble-making-line-breaks-on-instagram-in-2020/)
 - [lenadahlin.se: Smarta digitala verktyg](https://www.lenadahlin.se/smarta-digitala-verktyg/)
+- [everway.se: Radbyte i inläggstexten på Instagram](https://www.everway.se/2020/06/30/radbyte-i-texten-pa-instagram/)
 
 ## Development
 
