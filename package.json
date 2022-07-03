@@ -1,5 +1,5 @@
 {
-  "name": "linewizard",
+  "name": "line-wizard",
   "description": "Line Wizard - Instagram Line Breaker",
   "version": "1.0.0",
   "author": "Niklas Lavrell <niklas.lavrell@gmail.com>",
@@ -53,6 +53,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/niklaslavrell/linewizard"
+    "url": "https://github.com/niklaslavrell/line-wizard"
   }
 }
