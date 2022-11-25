@@ -2568,21 +2568,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.15.4":
+"@babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.17.9":
   version: 7.20.1
   resolution: "@babel/runtime@npm:7.20.1"
   dependencies:
     regenerator-runtime: ^0.13.10
   checksum: 00567a333d3357925742a6f5e39394dcc0af6e6029103fe188158bf7ae8b0b3ee3c6c0f68fccc217f0a6cfa455f6be252298baf56b3f5ff37b34313b170cd9f6
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.16.7":
-  version: 7.18.6
-  resolution: "@babel/runtime@npm:7.18.6"
-  dependencies:
-    regenerator-runtime: ^0.13.4
-  checksum: 8b707b64ae0524db617d0c49933b258b96376a38307dc0be8fb42db5697608bcc1eba459acce541e376cff5ed5c5287d24db5780bd776b7c75ba2c2e26ff8a2c
   languageName: node
   linkType: hard
 
@@ -10545,7 +10536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-image@npm:^2.0.25":
+"gatsby-image@npm:^2.11.0":
   version: 2.11.0
   resolution: "gatsby-image@npm:2.11.0"
   dependencies:
@@ -10596,7 +10587,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-canonical-urls@npm:^2.0.8":
+"gatsby-plugin-canonical-urls@npm:^2.10.0":
   version: 2.10.0
   resolution: "gatsby-plugin-canonical-urls@npm:2.10.0"
   dependencies:
@@ -10607,7 +10598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-google-analytics@npm:^2.0.8":
+"gatsby-plugin-google-analytics@npm:^2.11.0":
   version: 2.11.0
   resolution: "gatsby-plugin-google-analytics@npm:2.11.0"
   dependencies:
@@ -10621,7 +10612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-manifest@npm:^2.0.12":
+"gatsby-plugin-manifest@npm:^2.12.1":
   version: 2.12.1
   resolution: "gatsby-plugin-manifest@npm:2.12.1"
   dependencies:
@@ -10636,7 +10627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-netlify@npm:^2.0.6":
+"gatsby-plugin-netlify@npm:^2.11.1":
   version: 2.11.1
   resolution: "gatsby-plugin-netlify@npm:2.11.1"
   dependencies:
@@ -10651,7 +10642,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-offline@npm:^3.0.32":
+"gatsby-plugin-offline@npm:^3.10.2":
   version: 3.10.2
   resolution: "gatsby-plugin-offline@npm:3.10.2"
   dependencies:
@@ -10686,7 +10677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-react-helmet@npm:^3.0.2":
+"gatsby-plugin-react-helmet@npm:^3.10.0":
   version: 3.10.0
   resolution: "gatsby-plugin-react-helmet@npm:3.10.0"
   dependencies:
@@ -10698,19 +10689,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-robots-txt@npm:^1.3.0":
-  version: 1.7.1
-  resolution: "gatsby-plugin-robots-txt@npm:1.7.1"
+"gatsby-plugin-robots-txt@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "gatsby-plugin-robots-txt@npm:1.8.0"
   dependencies:
-    "@babel/runtime": ^7.16.7
+    "@babel/runtime": ^7.17.9
     generate-robotstxt: ^8.0.3
   peerDependencies:
-    gatsby: ^4.0.0 || ^3.0.0 || ^2.0.0
-  checksum: e98c8aa1aa8b01e58657709ca97e4429e5a7c0b640449e10167d64bfbc6f0d9338908a7616ef00a051f9c78ea4a03d380b5cf7d45b3aaf44227607c6e9264cc1
+    gatsby: ^5.0.0
+  checksum: 0fe740f6cb008400a718f7e5eb1a9e86fe5fa0aee521f0014aa0c7ae27a681a220ee971dcd519c8967262d7a02e07c78e6685cba59dd187dd4b532ff37d9a1d6
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sharp@npm:^2.0.14":
+"gatsby-plugin-sharp@npm:^2.14.4":
   version: 2.14.4
   resolution: "gatsby-plugin-sharp@npm:2.14.4"
   dependencies:
@@ -10740,7 +10731,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sitemap@npm:^2.0.3":
+"gatsby-plugin-sitemap@npm:^2.12.0":
   version: 2.12.0
   resolution: "gatsby-plugin-sitemap@npm:2.12.0"
   dependencies:
@@ -10770,7 +10761,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-typography@npm:^2.2.2":
+"gatsby-plugin-typography@npm:^2.12.0":
   version: 2.12.0
   resolution: "gatsby-plugin-typography@npm:2.12.0"
   dependencies:
@@ -10875,7 +10866,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:^2.0.12":
+"gatsby-source-filesystem@npm:^2.11.1":
   version: 2.11.1
   resolution: "gatsby-source-filesystem@npm:2.11.1"
   dependencies:
@@ -10920,7 +10911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-transformer-sharp@npm:^2.1.8":
+"gatsby-transformer-sharp@npm:^2.12.1":
   version: 2.12.1
   resolution: "gatsby-transformer-sharp@npm:2.12.1"
   dependencies:
@@ -10938,7 +10929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:^2.0.72":
+"gatsby@npm:^2.32.13":
   version: 2.32.13
   resolution: "gatsby@npm:2.32.13"
   dependencies:
@@ -14331,20 +14322,20 @@ __metadata:
     babel-core: ^7.0.0-bridge.0
     babel-jest: ^24.9.0
     babel-preset-gatsby: ^0.2.27
-    gatsby: ^2.0.72
-    gatsby-image: ^2.0.25
-    gatsby-plugin-canonical-urls: ^2.0.8
-    gatsby-plugin-google-analytics: ^2.0.8
-    gatsby-plugin-manifest: ^2.0.12
-    gatsby-plugin-netlify: ^2.0.6
-    gatsby-plugin-offline: ^3.0.32
-    gatsby-plugin-react-helmet: ^3.0.2
-    gatsby-plugin-robots-txt: ^1.3.0
-    gatsby-plugin-sharp: ^2.0.14
-    gatsby-plugin-sitemap: ^2.0.3
-    gatsby-plugin-typography: ^2.2.2
-    gatsby-source-filesystem: ^2.0.12
-    gatsby-transformer-sharp: ^2.1.8
+    gatsby: ^2.32.13
+    gatsby-image: ^2.11.0
+    gatsby-plugin-canonical-urls: ^2.10.0
+    gatsby-plugin-google-analytics: ^2.11.0
+    gatsby-plugin-manifest: ^2.12.1
+    gatsby-plugin-netlify: ^2.11.1
+    gatsby-plugin-offline: ^3.10.2
+    gatsby-plugin-react-helmet: ^3.10.0
+    gatsby-plugin-robots-txt: ^1.8.0
+    gatsby-plugin-sharp: ^2.14.4
+    gatsby-plugin-sitemap: ^2.12.0
+    gatsby-plugin-typography: ^2.12.0
+    gatsby-source-filesystem: ^2.11.1
+    gatsby-transformer-sharp: ^2.12.1
     identity-obj-proxy: ^3.0.0
     jest: ^24.9.0
     prettier: ^2.0.5
