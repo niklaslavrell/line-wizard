@@ -22,13 +22,13 @@
     "gatsby-plugin-typography": "^3.15.0",
     "gatsby-source-filesystem": "^3.15.0",
     "gatsby-transformer-sharp": "^3.15.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-helmet": "^5.2.0",
-    "react-typography": "^0.16.18",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-helmet": "^5.2.1",
+    "react-typography": "^0.16.23",
     "typeface-source-sans-pro": "^0.0.75",
-    "typography": "^0.16.18",
-    "typography-theme-moraga": "^0.16.18"
+    "typography": "^0.16.21",
+    "typography-theme-moraga": "^0.16.19"
   },
   "resolutions": {
     "sharp": "^0.29.0"
@@ -53,7 +53,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "prettier": "^2.8.4",
-    "react-test-renderer": "^16.6.3"
+    "react-test-renderer": "^16.14.0"
   },
   "repository": {
     "type": "git",
