@@ -52,7 +52,7 @@
     "babel-preset-gatsby": "^0.2.36",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.8.4",
     "react-test-renderer": "^16.6.3"
   },
   "repository": {
