@@ -45,10 +45,10 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.3",
+    "@babel/core": "^7.21.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.9.0",
-    "babel-preset-gatsby": "^0.2.27",
+    "babel-preset-gatsby": "^0.2.36",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "prettier": "^2.0.5",
