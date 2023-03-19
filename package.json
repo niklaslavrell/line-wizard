@@ -42,6 +42,7 @@
     "develop": "gatsby develop",
     "start": "yarn develop",
     "format": "prettier --write \"src/**/*.js\"",
+    "format:check": "prettier --check \"src/**/*.js\"",
     "test": "jest"
   },
   "devDependencies": {
