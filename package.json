@@ -43,7 +43,8 @@
     "start": "yarn develop",
     "format": "prettier --write \"src/**/*.js\"",
     "format:check": "prettier --check \"src/**/*.js\"",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --ci"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
