@@ -9,6 +9,7 @@ import 'typeface-source-sans-pro'
 
 import Header from './header'
 import Footer from './footer'
+import Wave from './wave'
 
 const Layout = ({ title, children }) => (
   <StaticQuery
@@ -148,6 +149,7 @@ const Layout = ({ title, children }) => (
           }}
         >
           <Header siteTitle={data.site.siteMetadata.shortTitle} />
+          <Wave />
           <div
             style={{
               margin: '0 auto',
@@ -174,6 +176,7 @@ const Layout = ({ title, children }) => (
               zIndex: -20,
             }}
           />
+          <Wave flip />
           <Footer />
         </div>
       </>
